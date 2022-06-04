@@ -24,7 +24,7 @@ const UserPage = () => {
         <div>
           <h1>Logged In</h1>
           <h3>Email: {user.email}</h3>
-          <h3>Password: {user.password}</h3>
+          <h3>ID: {user.id}</h3>
         </div>
       ) : (
         <div>
