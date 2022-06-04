@@ -16,6 +16,7 @@ const LoginPage = () => {
           password,
         }
       );
+
       window.location.href = '/User';
     } catch (error) {
       if (error.response.status === 401) {
