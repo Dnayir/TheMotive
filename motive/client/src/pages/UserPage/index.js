@@ -33,7 +33,7 @@ const UserPage = () => {
           <h3>Email: {user.email}</h3>
           <h3>ID: {user.id}</h3>
           <div>
-            <button onClick={logoutUser()}>Logout</button>
+            <button onClick={logoutUser}>Logout</button>
           </div>
         </div>
       ) : (
