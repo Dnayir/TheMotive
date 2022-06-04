@@ -15,7 +15,7 @@ const UserPage = () => {
         console.log('Not Authenticated');
       }
     })();
-  });
+  }, []);
 
   return (
     <div>
