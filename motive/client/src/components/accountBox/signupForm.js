@@ -7,7 +7,7 @@ import {
   MutedLink,
   SubmitButton,
 } from "./common";
-import { Marginer } from "../marginer";
+import { Marginer } from "../Marginer";
 import { AccountContext } from "./accountContext";
 
 export function SignupForm(props) {

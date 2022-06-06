@@ -16,7 +16,22 @@ const NavBar = () => {
     return (
         <nav>
             <div className='left-corner'>
-                <img src={logo} width='100' height='100' alt='the.MOTIVE Logo' />
+                <div className='image-container'>
+                    <img src={logo} 
+                        width='250' 
+                        height='220' 
+                        alt='the.MOTIVE Logo'
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'flex-start',
+                            alignSelf: 'center',
+                            marginRight: '225px',
+                            margin: '0',
+                            
+                        }} />
+                </div>
+                    
             </div>
 
             {/* --- USE WHEN USERNAME FUNCTIONALITY CREATED */}
@@ -28,21 +43,21 @@ const NavBar = () => {
 
                 {/* ---- MODAL BOX NEEDED FOR LOCATION ----- */}
                 <NavLink role='link' className='nav-item' to='/location'>
-                    <div className='image-container'>
+                    <div className='icon-container'>
                         <img src={location} width='100' height='100' alt='Location' />
 
                     </div>
                 </NavLink>
 
                 <NavLink role='link' className='nav-item' to='/friends'>
-                    <div className='image-container'>
+                    <div className='icon-container'>
                         <img src={friends} width='100' height='100' alt='Location' />
 
                     </div>
                 </NavLink>
 
                 <NavLink role='link' className='nav-item' to='/friends'>
-                    <div className='image-container'>
+                    <div className='icon-container'>
                         <img src={logout} width='100' height='100' alt='Location' />
 
                     </div>
