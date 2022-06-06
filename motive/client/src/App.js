@@ -24,10 +24,12 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Pages.LandingPage />} />
-          <Route path="/Login" element={<Pages.LoginPage />} />
-          <Route path="/Register" element={<Pages.RegisterPage />} />
-          <Route path="/User" element={<Pages.UserPage />} />
-          <Route path="/connect" element={<Deploy prop={state} />} />
+          <Route path="/user" element={<Pages.UserPage />} />
+          <Route path="/motive" element={<Pages.MotivePage />} />
+          <Route path="/vibe" element={<Pages.VibePage />} />
+          <Route path="/venues" element={<Pages.VenuesPage />} />
+          <Route path="/venue" element={<Pages.VenuePage />} />
+
           <Route path="*" element={<Pages.NotFoundPage />} />
         </Routes>
       </main>
