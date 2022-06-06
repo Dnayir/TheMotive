@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import httpClient from '../httpClient';
+import { CurrentLocation } from '../../components';
+// import { Maps } from '../../components/Maps';
+// import { SearchBox } from '../../components/SearchBox';
 
 const UserPage = () => {
   const [user, setUser] = useState({ id: '', email: '' });
@@ -32,8 +35,19 @@ const UserPage = () => {
           <h1>Logged In</h1>
           <h3>Email: {user.email}</h3>
           <h3>ID: {user.id}</h3>
+          <h3>
+            Your Current Location: <CurrentLocation />
+          </h3>
           <div>
             <button onClick={logoutUser}>Logout</button>
+          </div>
+          <div>
+            {/* <div>
+              <Maps />
+            </div>
+            <div>
+              <SearchBox />
+            </div> */}
           </div>
         </div>
       ) : (

@@ -2,7 +2,7 @@ import './index.css';
 import React, { useState, useEffect } from 'react';
 import * as Pages from './pages';
 import { Routes, Route } from 'react-router-dom';
-import { Deploy } from './components/Deploy';
+import { Deploy, NavBar } from './components';
 
 function App() {
   const [state, setState] = useState({});
@@ -21,6 +21,7 @@ function App() {
   return (
     <div id="app" className="container">
       <main>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Pages.LandingPage />} />
           <Route path="/Login" element={<Pages.LoginPage />} />
