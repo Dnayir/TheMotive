@@ -1,16 +1,20 @@
 import React from 'react';
-import { VenueInfoCard } from '../../components';
+import './venueinfo.css';
+import { NavBar, VenueInfoCard } from '../../components';
 
 const VenueInfoPage = () => {
     return (
 
-        <div className='venues-main-container'>
+        <div className='main-container'>
 
-            <Container fluid>
+            <NavBar />
+            <div className='card-container'>
 
-                <VenueInfoCard  />            
+                <VenueInfoCard />
 
-            </Container>
+                           
+
+            </div>
 
 
         </div>
