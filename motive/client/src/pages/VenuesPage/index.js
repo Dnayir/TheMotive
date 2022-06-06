@@ -1,27 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Container } from 'react-bootstrap';
-import { VenuesCard } from '../../components';
+import './venues.css';
+import { NavBar, VenuesCard } from '../../components';
 
 const VenuesPage = () => {
     
-    const theVenues = useSelector(state => state.venues);
-
-    const renderVenues = theVenues.map(venue => 
-                <VenuesCard />)
 
     return (
 
-        <div className='venues-main-container'>
+        <div className='main-container'>
 
-            <Container fluid>
+            <NavBar />
+            <div className='card-container'>
 
-                <section >
-                    { renderVenues }
-                </section>
+                <VenuesCard />
+
                            
 
-            </Container>
+            </div>
 
 
         </div>
