@@ -6,6 +6,7 @@ from flask_session import Session
 from flask import Flask, send_from_directory, jsonify, request, session
 from flask_cors import CORS
 from werkzeug import exceptions
+import requests
 
 from .models.user import db, User
 # Load environment variables
@@ -24,7 +25,6 @@ app.config.update(
     SQLALCHEMY_DATABASE_URI=database_uri,
     SQLALCHEMY_TRACK_MODIFICATIONS=environ.get('SQL_ALCHEMY_TRACK_MODIFICATIONS'),
     SECRET_KEY=environ.get('SECRET'),
-    
     SESSION_TYPE = "redis",
     SESSION_PERMANENT = False,
     SESSION_REDIS = redis.from_url("redis://:pd5b772b513d356ff7c0dd1514db19557505e48a390959bd4c93242382ad159ef@ec2-54-194-35-138.eu-west-1.compute.amazonaws.com:31459"),
@@ -84,7 +84,6 @@ def register_user():
 
 
 
-
 @app.route("/login", methods=["POST"])
 def login_user():
     email = request.json["email"]
@@ -109,6 +108,58 @@ def login_user():
 def logout_user():
     session.pop("user_id")
     return "200"
+
+
+@app.route('/venues_list')
+def fetch_venues():
+    #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
+    # url = "https://wyre-data.p.rapidapi.com/restaurants/localauthority/Wyre' \ --header 'x-rapidapi-key: INSERT_RAPIDAPI_KEY_HERE"
+  
+    url = "https://api.punkapi.com/v2/beers"
+    response = requests.request("GET", url)
+    jsonData = response.json()
+    for item in jsonData:
+        print(item['name'])
+    return jsonData[0]
+
+
+@app.route('/food_motive')
+def fetch_food_venues():
+    #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
+    url = "https://wyre-data.p.rapidapi.com/restaurants/town/hambleton"
+
+
+    headers = {
+        "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
+        "x-rapidapi-key": environ.get("WYRE_API_KEY")
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    jsonData = jsonify(response.text)
+    print(jsonData)
+    return jsonData
+
+
+@app.route('/food_list')
+def fetch_indiviudal_venue():
+    #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
+    url = "https://the-fork-the-spoon.p.rapidapi.com/restaurants/v2/get-info"
+
+    querystring = {"restaurantId":"522995"}
+
+    headers = {
+        "X-RapidAPI-Host": "the-fork-the-spoon.p.rapidapi.com",
+        "X-RapidAPI-Key": environ.get("FORK_API_KEY")
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    print(response.text)
+    jsonData = response.json()
+    for item in jsonData:
+        print(item)
+    return jsonData
+
 
 ############################################################################################################################################################
                                                                 #App Routes#
