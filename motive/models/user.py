@@ -12,7 +12,7 @@ class Reviews(db.Model):
     __tablename__ = 'reviews'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
-    user = db.relationship('Users', backref='user')
+    # user = db.relationship('Users', backref='user')
     review_id = db.Column(db.String(32), db.ForeignKey(
         'users.id'))
 
