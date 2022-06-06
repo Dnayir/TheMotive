@@ -7,6 +7,7 @@ from flask import Flask, send_from_directory, jsonify, request, session
 from flask_cors import CORS
 from werkzeug import exceptions
 import requests
+import json
 
 from .models.user import db, User
 # Load environment variables
@@ -126,7 +127,7 @@ def fetch_venues():
 @app.route('/food_motive')
 def fetch_food_venues():
     #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
-    url = "https://wyre-data.p.rapidapi.com/restaurants/town/hambleton"
+    url = "https://wyre-data.p.rapidapi.com/restaurants/localauthority/Southwark"
 
 
     headers = {
@@ -135,9 +136,27 @@ def fetch_food_venues():
     }
 
     response = requests.request("GET", url, headers=headers)
-    jsonData = jsonify(response.text)
-    print(jsonData)
-    return jsonData
+    jsonData = json.loads(response.text)
+    for x in jsonData:
+        print(x)
+    return jsonData[0]
+
+
+@app.route('/food_motive')
+def fetch_drink_venues():
+    #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
+    url = "https://wyre-data.p.rapidapi.com/restaurants/town/london/"
+
+
+    headers = {
+        "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
+        "x-rapidapi-key": environ.get("WYRE_API_KEY")
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    jsonData = json.loads(response.text)
+    print(type(jsonData))
+    return jsonData[0]
 
 
 @app.route('/food_list')

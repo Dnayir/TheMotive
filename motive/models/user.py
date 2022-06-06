@@ -22,6 +22,7 @@ class User(db.Model):
     id = db.Column(db.String(32), primary_key=True,
                    unique=True, default=get_uuid)
     email = db.Column(db.String(500), unique=True)
+    username = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(255), nullable=False)
     reviews = db.relationship('Reviews', backref='reviewer')
 
