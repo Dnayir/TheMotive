@@ -3,6 +3,7 @@ import './motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
 import { NavBar } from '../../components';
+import { Container } from 'react-bootstrap';
 import TypeWriterEffect from 'react-typewriter-effect';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,23 +14,29 @@ const MotivePage = () => {
 
     return (
         <div className='main-container'>
-
+       
+                <NavBar />
                 <div className='typewriter'>
                     <TypeWriterEffect 
                         textStyle={{
                             fontFamily: 'monospace',
-                            fontWeight: 500,
-                            fontSize: '1.8em',
+                            fontWeight: 'bold',
+                            fontSize: '3.7em',
+                            textAlign: 'center',
+                            lineHeight: '1.3',
+                            textShadow: '7px 7px 7px  #FF5900',
                             color: '#ffffff',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            marginTop: '55px',
+                            marginTop: '100px',
+        
+                    
                         }}
                         cursorColor='#da3422'
                         text='WHAT\S THE MOTIVE?'
-                        typeSpeed={100}
-                        startDelay={0.5}
+                        typeSpeed={70}
+                        startDelay={0.1}
                         loop={true}
                     
                     />
@@ -43,8 +50,8 @@ const MotivePage = () => {
                         <div className='image-container'>
                             <img 
                                 src={foodGif}
-                                width='220'
-                                height='250'
+                                width='170'
+                                height='200'
                                 alt='Food Gif'
                                 style={{
                                     display: 'flex',
@@ -52,6 +59,7 @@ const MotivePage = () => {
                                     alignItems: 'flex-end',
                                     alignSelf: 'center',
                                     marginRight: 'auto',
+                                    marginTop: '-40px',
                                     
                                   }}
                              />
@@ -61,8 +69,8 @@ const MotivePage = () => {
                         <div className='image-container'>
                         <img 
                                 src={drinkGif}
-                                width='220'
-                                height='250'
+                                width='170'
+                                height='200'
                                 alt='Food Gif'
                                 style={{
                                     display: 'flex',
@@ -70,6 +78,7 @@ const MotivePage = () => {
                                     alignItems: 'flex-end',
                                     alignSelf: 'center',
                                     marginRight: 'auto',
+                                    marginTop: '-10px',
                                     
                                   }}
                              />
@@ -77,7 +86,7 @@ const MotivePage = () => {
                     </div>
 
                 </div>
-
+            
             
         </div>
     )
