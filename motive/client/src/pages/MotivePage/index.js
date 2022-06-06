@@ -3,9 +3,8 @@ import './motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
 import { NavBar } from '../../components';
-import { Container } from 'react-bootstrap';
 import TypeWriterEffect from 'react-typewriter-effect';
-import { useNavigate } from 'react-router-dom';
+
 
 const MotivePage = () => {
     
