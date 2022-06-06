@@ -101,7 +101,7 @@ export function AccountBox(props) {
   const [isExpanded, setExpanded] = useState(false);
   const [active, setActive] = useState("signin");
 
-  const playExpandingAnimation = () => {
+  const expandingAnimation = () => {
     setExpanded(true);
     setTimeout(() => {
       setExpanded(false);
@@ -109,14 +109,14 @@ export function AccountBox(props) {
   };
 
   const switchToSignup = () => {
-    playExpandingAnimation();
+    expandingAnimation();
     setTimeout(() => {
       setActive("signup");
     }, 400);
   };
 
   const switchToSignin = () => {
-    playExpandingAnimation();
+    expandingAnimation();
     setTimeout(() => {
       setActive("signin");
     }, 400);
@@ -138,14 +138,14 @@ export function AccountBox(props) {
             <HeaderContainer>
               <HeaderText>Welcome</HeaderText>
               <HeaderText>Back</HeaderText>
-              <SmallText>Please sign-in to continue!</SmallText>
+              <SmallText>Sign in and continue the motive!</SmallText>
             </HeaderContainer>
           )}
           {active === "signup" && (
             <HeaderContainer>
               <HeaderText>Create</HeaderText>
               <HeaderText>Account</HeaderText>
-              <SmallText>Please sign-up to continue!</SmallText>
+              <SmallText>Sign up and never let the motive end!</SmallText>
             </HeaderContainer>
           )}
         </TopContainer>

@@ -21,7 +21,7 @@ function App() {
   return (
     <div id="app" className="container">
       <main>
-        <NavBar />
+        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Pages.LandingPage />} />
           <Route path="/user" element={<Pages.UserPage />} />
