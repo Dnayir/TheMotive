@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import httpClient from '../httpClient';
 import { CurrentLocation } from '../../components';
+import { AccountBox } from '../../components/accountBox';
+import styled from 'styled-components';
 // import { Maps } from '../../components/Maps';
 // import { SearchBox } from '../../components/SearchBox';
 
@@ -27,44 +29,64 @@ const UserPage = () => {
     })();
   }, []);
 
+  const AppContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
   return (
-    <div>
-      <h1>Welcome to Your Profile page</h1>
-      {user != null ? (
-        <div>
-          <h1>Logged In</h1>
-          <h3>Email: {user.email}</h3>
-          <h3>ID: {user.id}</h3>
-          <h3>
-            Your Current Location: <CurrentLocation />
-          </h3>
-          <div>
-            <button onClick={logoutUser}>Logout</button>
-          </div>
-          <div>
-            {/* <div>
-              <Maps />
-            </div>
-            <div>
-              <SearchBox />
-            </div> */}
-          </div>
-        </div>
-      ) : (
-        <div>
-          <p>You are not logged in</p>
-          <div>
-            <a href="/Login">
-              <button>Login</button>
-            </a>
-            <a href="/Register">
-              <button>Register</button>
-            </a>
-          </div>
-        </div>
-      )}
-    </div>
+
+  <React.Fragment>
+
+    <AppContainer>
+      <AccountBox />
+    </AppContainer>
+    
+  </React.Fragment>
+
   );
+
+  //   <div>
+  //     <h1>Welcome to Your Profile page</h1>
+  //     {user != null ? (
+  //       <div>
+  //         <h1>Logged In</h1>
+  //         <h3>Email: {user.email}</h3>
+  //         <h3>ID: {user.id}</h3>
+  //         <h3>
+  //           Your Current Location: <CurrentLocation />
+  //         </h3>
+  //         <div>
+  //           <button onClick={logoutUser}>Logout</button>
+  //         </div>
+  //         <div>
+  //           {/* <div>
+  //             <Maps />
+  //           </div>
+  //           <div>
+  //             <SearchBox />
+  //           </div> */}
+  //         </div>
+  //       </div>
+  //     ) : (
+  //       <div>
+  //         <p>You are not logged in</p>
+  //         <div>
+  //           <a href="/Login">
+  //             <button>Login</button>
+  //           </a>
+  //           <a href="/Register">
+  //             <button>Register</button>
+  //           </a>
+  //         </div>
+  //       </div>
+  //     )}
+  //   </div>
+  // );
 };
 
 export default UserPage;
