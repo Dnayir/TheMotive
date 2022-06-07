@@ -54,4 +54,4 @@ const FoodPage = () => {
 }
 
 
-export default DrinkPage;
+export default FoodPage;
