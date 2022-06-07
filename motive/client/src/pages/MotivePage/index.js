@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate, useDispatch } from 'react-router-dom'
 import './motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
 import { NavBar } from '../../components';
 import TypeWriterEffect from 'react-typewriter-effect';
+;
 
 
 const MotivePage = () => {
     
     // ----> use Navigate if statement depending on onClick event
     // ----> onClick handlers for redirection
+
+    // const[food, setFood] = useState('');
+    // const[drink, setDrink] = useState('');
+
+    // const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+
+    function handleFood(e) {
+        // dispatch(setFood(e.currentTarget.value));
+        navigate('/food');
+    }
+
+    function handleDrink(e) {
+        // dispatch(setDrink(e.currentTarget.value));
+        navigate('/drink');
+    }
+
+
 
     return (
         <div className='main-container'>
@@ -49,6 +70,7 @@ const MotivePage = () => {
                         <div className='image-container'>
                             <img 
                                 src={foodGif}
+                                onclick={handleFood}
                                 width='170'
                                 height='200'
                                 alt='Food Gif'
@@ -68,6 +90,7 @@ const MotivePage = () => {
                         <div className='image-container'>
                         <img 
                                 src={drinkGif}
+                                onClick={handleDrink}
                                 width='170'
                                 height='200'
                                 alt='Food Gif'
