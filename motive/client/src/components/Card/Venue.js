@@ -39,4 +39,4 @@ const Venue = ({ data, open }) => {
     )
 }
 
-export default Venue;''
+export default Venue;

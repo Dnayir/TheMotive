@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Modal = ({ data, close }) => {
 
-    const { categories, geocodes, imageUrl, location, } = data;
+    const { categories, description, geocodes, imageUrl, location, } = data;
 
     const modalVariants = {
        open: {

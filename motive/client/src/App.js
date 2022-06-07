@@ -28,10 +28,9 @@ function App() {
 
           
           <Route path="/motive" element={<Pages.MotivePage />} />
-          <Route path="/vibe" element={<Pages.VibePage />} />
           <Route path="/food" element={<Pages.FoodPage />} />
           <Route path="/drink" element={<Pages.DrinkPage />} />
-          <Review path="review" element={<Pages.ReviewPage />} />
+          <Route path="/review" element={<Pages.ReviewPage />} />
 
           <Route path="*" element={<Pages.NotFoundPage />} />
         </Routes>
