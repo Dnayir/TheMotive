@@ -30,6 +30,7 @@ function App() {
           <Route path="/motive" element={<Pages.MotivePage />} />
           <Route path="/food" element={<Pages.FoodPage />} />
           <Route path="/drink" element={<Pages.DrinkPage />} />
+          <Route path="/venues" element={<Pages.VenuesPage />} />
           <Route path="/review" element={<Pages.ReviewPage />} />
 
           <Route path="*" element={<Pages.NotFoundPage />} />
