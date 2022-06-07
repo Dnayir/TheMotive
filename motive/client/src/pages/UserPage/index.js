@@ -8,6 +8,36 @@ import styled from 'styled-components';
 
 const UserPage = () => {
   const [user, setUser] = useState({ id: '', email: '' });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const registerUser = async () => {
+    try {
+      const resp = await httpClient.post(
+        'https://the-motive-one.herokuapp.com/register',
+        {
+          email,
+          password,
+        }
+      );
+      window.location.href = '/User';
+    } catch (error) {
+      if (error.response.status === 401) {
+        alert('Invalid Credentials');
+      }
+    }
+  }
+//  
+
+//       window.location.href = '/User';
+//     } catch (error) {
+//       if (error.response.status === 401) {
+//         alert('Invalid Credentials');
+//       }
+//     }
+//   };
+
+
 
   const logoutUser = async () => {
     const resp = await httpClient.post(
@@ -197,10 +227,10 @@ export default UserPage;
 //         <div>
 //           <label>Password</label>
 //           <input
-//             type="password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             id=""
+            // type="password"
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
+            // id=""
 //           ></input>
 //         </div>
 //         <button type="button" onClick={() => logInUser()}>
