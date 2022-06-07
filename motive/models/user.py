@@ -14,6 +14,7 @@ class Reviews(db.Model):
     restaurant_name = db.Column(db.String(80))
     type_of_food =db.Column(db.String(175))
     # user = db.relationship('Users', backref='user')
+    review_description = db.Column(db.String(700))
     review_id = db.Column(db.String(32), db.ForeignKey(
         'users.id'))
 
