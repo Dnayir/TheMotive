@@ -1,3 +1,4 @@
+from unittest import suite
 from dotenv import load_dotenv
 from os import environ
 import redis
@@ -111,73 +112,91 @@ def logout_user():
     return "200"
 
 
-@app.route('/venues_list')
-def fetch_venues():
-    #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
-    # url = "https://wyre-data.p.rapidapi.com/restaurants/localauthority/Wyre' \ --header 'x-rapidapi-key: INSERT_RAPIDAPI_KEY_HERE"
-  
-    url = "https://api.punkapi.com/v2/beers"
-    response = requests.request("GET", url)
-    jsonData = response.json()
-    for item in jsonData:
-        print(item['name'])
-    return jsonData[0]
-
-
-@app.route('/food_motive')
+@app.route('/food_motive', methods=["POST"])
 def fetch_food_venues():
-    #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
-    url = "https://wyre-data.p.rapidapi.com/restaurants/localauthority/Southwark"
+    if request.method == 'POST':
+        print(request.data)
+        # longitude = request.data['longitude']
+        # latitude = request.data['latitude']
+        url = "https://api.foursquare.com/v3/places/search?ll=41.8781,-87.6298&categories=13065"
+
+        querystring = {"ll=41.8781%2C-87.6298&categories=13065"}
+
+        # querystring = {"ll={}%2C-{}&categories=13065".format(longitude, latitude)}
+
+        headers = {
+            "Accept": "application/json",
+            "Authorization": environ.get("FOURSQUARE_API_KEY")
+        }
+    
+        response = requests.get(url, headers=headers)
+        #response = requests.get(url, headers=headers)
+        jsonData = json.loads(response.text)
+        print("res.text: ", response.text)
+        # for x in jsonData:
+        #     print(x)
+        return response.text
 
 
-    headers = {
-        "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
-        "x-rapidapi-key": environ.get("WYRE_API_KEY")
-    }
-
-    response = requests.request("GET", url, headers=headers)
-    jsonData = json.loads(response.text)
-    for x in jsonData:
-        print(x)
-    return jsonData[0]
-
-
-@app.route('/food_motive')
+@app.route('/drink_motive', methods=["POST"])
 def fetch_drink_venues():
-    #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
-    url = "https://wyre-data.p.rapidapi.com/restaurants/town/london/"
+    if request.method == 'POST':
+        print(request.data)
+        # longitude = request.data['longitude']
+        # latitude = request.data['latitude']
+        url = "https://api.foursquare.com/v3/places/search"
+
+        querystring = {"ll=41.8781%2C-87.6298&categories=13003"}
+        
+        #querystring = {"ll={}%2C-{}&categories=13065".format(longitude, latitude)}
+
+        headers = {
+            "Accept": "application/json",
+            "Authorization": environ.get("FOURSQUARE_API_KEY")
+        }
+
+        response = requests.get(url, headers=headers, params=querystring)
+        jsonData = json.loads(response.text)
+        for x in jsonData:
+            print(x)
+        return jsonData[0]
 
 
-    headers = {
-        "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
-        "x-rapidapi-key": environ.get("WYRE_API_KEY")
-    }
+@app.route('/category_motive', methods=["POST"])
+def fetch_categories():
+    if request.method == 'POST':
+        url = "https://api.foursquare.com/v3/places/search"
 
-    response = requests.request("GET", url, headers=headers)
-    jsonData = json.loads(response.text)
-    print(type(jsonData))
-    return jsonData[0]
+        headers = {
+            "Accept": "application/json",
+            "Authorization": environ.get("FOURSQUARE_API_KEY")
+        }
+
+        response = requests.get(url, headers=headers)
+        jsonData = json.loads(response.text)
+        for x in jsonData:
+            print(x)
+        return jsonData[0]
 
 
-@app.route('/food_list')
-def fetch_indiviudal_venue():
-    #url = "https://api.punkapi.com/v2/beers".format(os.environ.get("TMDB_API_KEY"))
-    url = "https://the-fork-the-spoon.p.rapidapi.com/restaurants/v2/get-info"
+# @app.route('/food_list')
+# def fetch_indiviudal_venue():
+#     url = "https://the-fork-the-spoon.p.rapidapi.com/restaurants/v2/get-info"
 
-    querystring = {"restaurantId":"522995"}
+#     querystring = {"restaurantId":"522995"}
 
-    headers = {
-        "X-RapidAPI-Host": "the-fork-the-spoon.p.rapidapi.com",
-        "X-RapidAPI-Key": environ.get("FORK_API_KEY")
-    }
+#     headers = {
+#         "X-RapidAPI-Host": "the-fork-the-spoon.p.rapidapi.com",
+#         "X-RapidAPI-Key": environ.get("FORK_API_KEY")
+#     }
 
-    response = requests.request("GET", url, headers=headers, params=querystring)
+#     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    print(response.text)
-    jsonData = response.json()
-    for item in jsonData:
-        print(item)
-    return jsonData
+#     print(response.text)
+#     jsonData = response.json()
+#     for item in jsonData:
+#         print(item)
+#     return jsonData
 
 
 ############################################################################################################################################################
