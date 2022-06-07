@@ -1,5 +1,3 @@
-from cgitb import reset
-from unittest import suite
 from dotenv import load_dotenv
 from os import environ
 import redis
@@ -41,14 +39,19 @@ server_session = Session(app)
 db.app = app
 db.init_app(app)
 
+
 ############################################################################################################################################################
                                                                 #Api Routes#
 ############################################################################################################################################################
 @app.route("/data", methods=["GET"])
 def index():
-    return jsonify({
-        "title": "The Motive"
-    })
+    try:
+        return jsonify({
+            "title": "The Motive"
+        })
+    except:
+        return 405
+
 
 @app.route("/@me")
 def get_current_user():
@@ -60,13 +63,16 @@ def get_current_user():
     user = User.query.filter_by(id=user_id).first()
     return jsonify({
         "id": user.id,
-       "email": user.email
+       "email": user.email,
+       "username": user.username
     })
+    
 
 @app.route("/register", methods=["POST"])
 def register_user():
     email = request.json["email"]
     password = request.json["password"]
+    username = request.json['username']
 
     user_exists = User.query.filter_by(email=email).first() is not None
 
@@ -74,15 +80,16 @@ def register_user():
         return jsonify({"error": "User already exists"}), 409
 
     hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-    new_user = User(email=email, password=hashed_password)
+    new_user = User(email=email, password=hashed_password, username=username)
     db.session.add(new_user)
     db.session.commit()
 
     session["user_id"] = new_user.id
 
     return jsonify({
-       "id": new_user.id,
-       "email":new_user.email
+        "id": new_user.id,
+        "email": new_user.email,
+        "username": new_user.username
     })
 
 
