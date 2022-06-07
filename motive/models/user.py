@@ -11,7 +11,8 @@ def get_uuid():
 class Reviews(db.Model):
     __tablename__ = 'reviews'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80))
+    restaurant_name = db.Column(db.String(80))
+    type_of_food =db.Column(db.String(175))
     # user = db.relationship('Users', backref='user')
     review_id = db.Column(db.String(32), db.ForeignKey(
         'users.id'))
