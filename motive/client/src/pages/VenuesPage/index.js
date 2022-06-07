@@ -1,6 +1,6 @@
 import React from 'react';
 import './venues.css';
-import { NavBar, VenuesCard } from '../../components';
+import { NavBar, Card } from '../../components';
 
 const VenuesPage = () => {
     
@@ -12,12 +12,11 @@ const VenuesPage = () => {
             <NavBar />
             <div className='card-container'>
 
-                <VenuesCard />
+                <Card />
 
                            
 
             </div>
-
 
         </div>
     )
