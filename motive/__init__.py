@@ -199,8 +199,8 @@ def user_review():
     return jsonify({
         "username": new_review.username,
         "email": new_review.restaurant_name,
-        "type_of_food": new_review.type_of_food
-        "review_description":new_review.review_description
+        "type_of_food": new_review.type_of_food,
+        "review_description":new_review.review_description,
     })
 
 
