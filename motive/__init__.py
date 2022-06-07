@@ -111,6 +111,7 @@ def login_user():
 
     return jsonify({
        "id": user.id,
+       "username": user.username,
        "email": user.email
     })
 
@@ -191,16 +192,16 @@ def user_review():
     username = request.json["username"]
     restaurant_name = request.json["restaurant_name"]
     type_of_food = request.json["type_of_food"]
-    review_description = request.json['review']
+    review_description = request.json['review_description']
 
-    new_review = User(username=username, restaurant_name=restaurant_name, type_of_food=type_of_food, review_description=review_description)
-   
+    new_review = Reviews(username=username, restaurant_name=restaurant_name, type_of_food=type_of_food, review_description=review_description)
+
 
     return jsonify({
         "username": new_review.username,
         "email": new_review.restaurant_name,
         "type_of_food": new_review.type_of_food,
-        "review_description":new_review.review_description,
+        "review_description":new_review.review_description
     })
 
 
