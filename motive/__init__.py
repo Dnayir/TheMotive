@@ -9,7 +9,7 @@ from werkzeug import exceptions
 import requests
 import json
 
-from .models.user import db, User
+from .models.user import db, User, Reviews
 # Load environment variables
 
 load_dotenv()
@@ -190,24 +190,17 @@ def fetch_drink_venues():
 def user_review():
     username = request.json["username"]
     restaurant_name = request.json["restaurant_name"]
-    review = request.json['review']
+    type_of_food = request.json["type_of_food"]
+    review_description = request.json['review']
 
-    user_exists = User.query.filter_by(email=email).first() is not None
-
-    if user_exists:
-        return jsonify({"error": "User already exists"}), 409
-
-    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-    new_user = User(email=email, password=hashed_password, username=username)
-    db.session.add(new_user)
-    db.session.commit()
-
-    session["user_id"] = new_user.id
+    new_review = User(username=username, restaurant_name=restaurant_name, type_of_food=type_of_food, review_description=review_description)
+   
 
     return jsonify({
-        "id": new_user.id,
-        "email": new_user.email,
-        "username": new_user.username
+        "username": new_review.username,
+        "email": new_review.restaurant_name,
+        "type_of_food": new_review.type_of_food
+        "review_description":new_review.review_description
     })
 
 
