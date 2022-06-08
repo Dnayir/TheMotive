@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 /// --------> USERNAME | DEFINING PAYLOAD & EXPORTING FUNCTION <------ ///
-const loadUsername = username => ({
+export const setUsername = username => ({
     type: 'SET_USERNAME',
     payload: username
 });
@@ -14,12 +14,6 @@ export const setLocation = location => ({
     payload: location
 });
 
-// export const setLocation = location => {
-//     return async dispatch => {
-//         dispatch(loadLocation(location));
-//     };
-// };
-
 
 /// --------> FOOD CATEGORY | DEFINING PAYLOAD & FETCHING <--------- ///
 export const setFoodCategory = foodCategory => ({
@@ -27,20 +21,9 @@ export const setFoodCategory = foodCategory => ({
     payload: foodCategory
 })
 
-// export const fetchFoodVenues = foodCategory => {
-
-//     return async (dispatch) => {
-//         try {
-//             const { data } = await axios.post('http://localhost:3000/food_motive');
-//             return data = dispatch(loadFoodVenues(foodCategory));
-//         } catch(err) {
-//             throw new Error(err.message)
-//         }
-//     }
-// }
 
 /// --------> DRINK CATEGORY | DEFINING PAYLOAD & FETCHING <--------- ///
-const loadDrinkVenues = drinkCategory => ({
+export const setDrinkCategory = drinkCategory => ({
     type: 'SET_DRINK_CATEGORY',
     payload: drinkCategory
 })
@@ -59,7 +42,7 @@ const loadDrinkVenues = drinkCategory => ({
 
 
 /// -------> VENUE | DEFINING PAYLOAD & POST REQUEST <---------- ///
-const loadVenue = ( lat, long, categories ) => ({
+const setVenue = ( lat, long, categories ) => ({
     type: 'SET_VENUE',
     payload: ( lat, long, categories )
 })
