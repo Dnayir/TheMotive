@@ -1,6 +1,5 @@
 import React from 'react';
 import './Modal.css';
-import Feature from './Feature';
 import { IoCloseCircleOutline } from 'react-icons/io5';
 import { motion } from 'framer-motion';
 
@@ -51,15 +50,7 @@ const Modal = ({ venueType, venueDistance, venueAddress, close }) => {
                 <motion.div className='modal-row' variants={modalRowVariants}>
                     <span className='modal-address'>{venueAddress}</span>
                 </motion.div>
-                {/* <motion.div className='modal-row' variants={modalRowVariants}>
-                    <Feature iconName={'FaStreetView'} iconLabel={location} />
-                </motion.div> */}
-                {/* <motion.div 
-                    className='modal-description-wrapper'
-                    variants={modalRowVariants}
-                >
-                    <p className='modal-description'>{description}</p>
-                </motion.div> */}
+
 
                 <motion.button 
                     className='modal-close-wrapper'
