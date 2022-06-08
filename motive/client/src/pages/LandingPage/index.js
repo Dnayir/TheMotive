@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import introGif from '../../images/intro.gif';
 import TypeWriterEffect from 'react-typewriter-effect';
-import { useNavigate } from 'react-router-dom';
-import Image from 'react-bootstrap/Image';
+
+import { loadLong, loadLat } from '../../actions';
+import useGeolocation from 'react-hook-geolocation';
 
 const LandingPage = () => {
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position.coords);
+        let updateLong = selectedLongitude => dispatch(loadLong(selectedLongitude));
+            updateLong(position.coords.longitude)
+        let updateLat = selectedLatitude => dispatch(loadLat(selectedLatitude));
+            updateLat(position.coords.latitude)
+    });
+
+  }, []);
 
   // -----> NAVIGATES TO LOGIN / SIGN UP TOGGLE FORM
   const handleEntry = (e) => {
