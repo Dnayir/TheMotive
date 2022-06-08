@@ -15,7 +15,7 @@ const FoodPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    function handleFood(e) {
+    function handleCategory(e) {
         // NEED TO SPECIFY IT IS A BAR CATEGORY
         let updateFood = selectedFood => dispatch(loadFoodCategory(selectedFood));
         updateFood(e.currentTarget.value)
