@@ -3,6 +3,12 @@ from flask import session
 from motive import find_all_categories, get_category_numbers
 from motive.models.user import get_uuid
 
+
+############################################################################################################################################################
+                                                                #data Route#
+############################################################################################################################################################
+
+
 def test_get_data(api):
     """Data page loads with title"""
     resp = api.get('/data')
@@ -18,32 +24,119 @@ def test_post_data(api):
     assert resp.status_code == 405
 
 
+############################################################################################################################################################
+                                                                #User Model#
+############################################################################################################################################################
+
+
 def test_uuid():
+    """Random id generated is longer than 0"""
     rand = get_uuid()
     assert len(rand) > 0
+
+
+############################################################################################################################################################
+                                                                #@me Route#
+############################################################################################################################################################
 
 
 # def test_get_me(api):
 #     with api.session_transaction() as session:
 #         session["user_id"] = 1
 #     resp = api.get("/User")
+
 #     assert resp.status == '200 OK'
 #     assert resp.status_code == 200
+#     assert '1' in res.json
 
 
-# def test_post_login(api):
-#     resp = api.post("/login", json={
-        
+############################################################################################################################################################
+                                                                #register Route#
+############################################################################################################################################################
+
+
+# def test_register_user(api):
+#     """With valid data, returns correct json response and logs user is registered"""
+#     resp = api.post("/register", json={        
 #         'email': 'test@test.com',
-#         'password': 'password',
-#         'headers': {'Content-Type': 'application/json'}
+#         'password': 'password'
 #     })
-    
+#     assert session["user_id"] == 1
 
-#     assert b'email: test@test.com' in resp.json
+#     assert resp.status == '200 OK'
+#     assert resp.status_code == 200
+#     assert b'test@test.com" in resp.json  
+
+
+def test_register_user_get(api):
+    """With invalid data, returns with 400"""
+    resp = api.post('/register')
+
+    assert resp.status == '400 BAD REQUEST'
+    assert resp.status_code == 400
+    assert b'400 Error: Bad Request' in resp.data
+
+
+############################################################################################################################################################
+                                                                #login Route#
+############################################################################################################################################################
+
+
+# def test_login_user(api):
+#     """With valid data, returns correct json response and logs user in"""
+#     resp = api.post("/login", json={        
+#         'email': 'test@test.com',
+#         'password': 'password'
+#     })
+#     assert session["user_id"] == 1
+
+#     assert resp.status == '200 OK'
+#     assert resp.status_code == 200
+#     assert b'test@test.com" in resp.json  
+
+
+def test_login_user_get(api):
+    """With invalid data, returns with 400"""
+    resp = api.post('/login')
+
+    assert resp.status == '400 BAD REQUEST'
+    assert resp.status_code == 400
+    assert b'400 Error: Bad Request' in resp.data
+
+
+############################################################################################################################################################
+                                                                #logout Route#
+############################################################################################################################################################
+
+
+# def test_logout_user(api):
+#     """test session is removed when you log out"""
+#     with api.session_transaction() as session:
+
+#         session["user_id"] = 1
+
+#         resp = api.post("/logout")
+        
+#         assert session["user_id"] == None
+#         assert resp.status_code == 200
+
+
+def test_logout_user_get(api):
+    """With invalid method, returns with 405"""
+    resp = api.post('/logout')
+
+    assert resp.status == '405 METHOD NOT ALLOWED'
+    assert resp.status_code == 405
+    assert b'405 Method Not Allowed' in resp.data
+
+
+############################################################################################################################################################
+                                                                #food_motive Route#
+############################################################################################################################################################
 
 
 def test_post_food(api):
+    """With valid data, returns correct json response"""
     resp = api.post("/food_motive", json={        
         'latitude': 51.496920,
         'longitude': -0.135380,
@@ -56,6 +149,7 @@ def test_post_food(api):
 
 
 def test_post_food_fail(api):
+    """With invalid data, returns with 400"""
     resp = api.post("/food_motive", json={          
     })
 
@@ -64,7 +158,13 @@ def test_post_food_fail(api):
     assert b'400 Error: Bad Request' in resp.data
 
 
+############################################################################################################################################################
+                                                                #drink_motive Route#
+############################################################################################################################################################
+
+
 def test_post_drink(api):
+    """With category of bar, returns correct json response"""
     resp = api.post("/drink_motive", json={        
         'latitude': 51.496920,
         'longitude': -0.135380,
@@ -77,6 +177,7 @@ def test_post_drink(api):
 
 
 def test_post_drink_pub(api):
+    """With category of pub, returns only venues listed as bar"""
     resp = api.post("/drink_motive", json={        
         'latitude': 51.496920,
         'longitude': -0.135380,
@@ -89,7 +190,40 @@ def test_post_drink_pub(api):
 
 
 def test_post_drink_fail(api):
+    """With invalid data, returns with 400"""
     resp = api.post("/drink_motive", json={          
+    })
+
+    assert resp.status == '400 BAD REQUEST'
+    assert resp.status_code == 400
+    assert b'400 Error: Bad Request' in resp.data
+    
+
+############################################################################################################################################################
+                                                                #review Route#
+############################################################################################################################################################
+
+
+def test_user_review(api):
+    """With valid data, returns correct json response for a review"""
+    resp = api.post("/review", json={     
+        'username': 'username',
+        'restaurant_name': 'food',
+        'type_of_food': 'tasty',
+        'review_description': 'is very nice'
+    })
+
+    assert resp.status == '200 OK'
+    assert resp.status_code == 200
+    assert resp.json == {"username": 'username',
+            "restaurant_name": 'food',
+            "type_of_food": 'tasty',
+            "review_description":'is very nice'}   
+
+
+def test_user_review_fail(api):
+    """With invalid data, returns with 400"""
+    resp = api.post("/review", json={          
     })
 
     assert resp.status == '400 BAD REQUEST'
@@ -97,38 +231,68 @@ def test_post_drink_fail(api):
     assert b'400 Error: Bad Request' in resp.data
 
 
+############################################################################################################################################################
+                                                                #find_all_categories Function#
+############################################################################################################################################################
+
+
 def test_find_all_categories_normal():
+    """with perfect input, returns expected list"""
     min = 1
     max = 10
     assert find_all_categories(min, max) == '1,2,3,4,5,6,7,8,9,10'
 
 
 def test_find_all_categories_max_first():
+    """if min > max, returns None"""
     min = 10
     max = 1
     assert find_all_categories(min, max) == None
 
 
 def test_find_all_categories_pub():
+    """if list will contain 13018 (pub), list returns without it"""
     min = 13017
     max = 13019
     assert find_all_categories(min, max) == '13017,13019'
 
 
 def test_find_all_categories_same():
+    """if min == max, returns none"""
     min = 10
     max = 10
     assert find_all_categories(min, max) == None
 
 
+def test_find_all_categories_negative(nums):
+    """if max or min is negative, returns None"""
+    for item in nums:
+        min = item[0]
+        max = item[1]
+        assert find_all_categories(min, max) == None
+
+
+############################################################################################################################################################
+                                                                #react Route#
+############################################################################################################################################################
+
+
 def test_react_serve(api):
+    """if the user navigates to a route not served by the api by get, they are served react app"""
     resp = api.get('/non-existent')
+
     assert resp.status == '200 OK'
     assert resp.status_code == 200
-    assert b"You need to enable JavaScript to run this app" in resp.data
+    assert b"You need to enable JavaScript to run this app." in resp.data
     
 
+############################################################################################################################################################
+                                                                #get_category_numbers Function#
+############################################################################################################################################################
+
+
 def test_get_category_numbers(category_options):
+    """with each possible option for category (in fixture), returns correct category code(s)"""
     for item in category_options:
         choice = item
         if choice == 'Afghan':
@@ -338,5 +502,11 @@ def test_get_category_numbers(category_options):
 
 
 def test_get_category_numbers_fail():
+    """if category is all then default category code 13065 is returned"""
     choice = 'all'
     assert get_category_numbers(choice) == 13065
+
+
+############################################################################################################################################################
+                                                                #End Of Tests#
+############################################################################################################################################################
