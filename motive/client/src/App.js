@@ -33,7 +33,7 @@ function App() {
             <Route path="/food" element={<Pages.FoodPage />} />
             <Route path="/drink" element={<Pages.DrinkPage />} />
             <Route path="/venues" element={<Pages.VenuesPage />} />
-            <Route path="/friends" element={<Pages.FriendsPage />} />
+            {/* <Route path="/friends" element={<Pages.FriendsPage />} /> */}
             <Route path="/review" element={<Pages.ReviewPage />} />
 
             <Route path="*" element={<Pages.NotFoundPage />} />
