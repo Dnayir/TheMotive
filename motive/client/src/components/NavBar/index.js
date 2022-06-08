@@ -6,7 +6,7 @@ import './navbar.css';
 
 import friends from '../../images/friends.gif';
 import logo from  '../../images/logo.gif';
-import location from  '../../images/location.gif';
+import review from  '../../images/review.gif';
 import logout from  '../../images/logout.gif';
 
 import { loadLong, loadLat } from '../../actions';
@@ -37,89 +37,88 @@ const NavBar = () => {
             <nav>
 
                 <div className='nav-container'>
-                    
-                    <div className='image-container'>
-                        <img src={logo} 
-                            width='180' 
-                            height='160' 
-                            alt='the.MOTIVE Logo'
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'flex-start',
-                                alignSelf: 'center',
-                                
-                                marginLeft: '55px',
-                                marginTop: '5px',
-                                margin: '0',
-                                
-                            }} />
+
+                    <div className='left-corner'>
+
+                        <div className='image-container'>
+                            <img src={logo} 
+                                width='180' 
+                                height='160' 
+                                alt='the.MOTIVE Logo'
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'flex-start',
+                                    alignSelf: 'flex-start',
+                                    
+                                    marginLeft: '110px',
+                                    marginTop: '55px',
+                                    margin: '0',
+                                    
+                                }} />
+                        </div>
+
                     </div>
-                        
+                    
+                    <div className='right-corner'>
 
-                    {/* ---- MODAL BOX NEEDED FOR LOCATION ----- */}
-                    {/* <button role='link' className='nav-item' onClick={handleUpdateLocation}>
-                        <div className='icon-container'>
-                            <img src={location} 
-                                width='60' 
-                                height='80' 
-                                alt='Location'
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'flex-start',
-                                    alignSelf: 'center',
-                                    marginRight: '225px',
-                                    marginLeft: '-22px',
-                                    marginTop: '-170px',
-                                    margin: '0',
-                                    
-                                }} />
+                        <NavLink role='link' className='nav-item' to='/review'>
+                            <div className='icon-container'>
+                                <img src={review} 
+                                    width='60' 
+                                    height='100' 
+                                    alt='Location'
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        alignSelf: 'center',
+                                        marginTop: '-170px',
+                                        margin: '0',
+                                        
+                                    }} />
 
-                        </div>
-                    </button> */}
+                            </div>
+                        </NavLink>
+        
+                        <NavLink role='link' className='nav-item' to='/friends'>
+                            <div className='icon-container'>
+                                <img src={friends} 
+                                     width='60' 
+                                     height='100' 
+                                    alt='Location'
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        alignSelf: 'center',
+                                        margin: '0',
+                                        
+                                    }} />
 
-                    <NavLink role='link' className='nav-item' to='/friends'>
-                        <div className='icon-container'>
-                            <img src={friends} 
-                                width='60' 
-                                height='80' 
-                                alt='Location'
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    alignSelf: 'center',
-                                    marginRight: '225px',
-                                    marginLeft: '-26px',
-                                    marginTop: '-170px',
-                                    margin: '0',
-                                    
-                                }} />
+                            </div>
+                        </NavLink>
 
-                        </div>
-                    </NavLink>
+                        <NavLink role='link' className='nav-item' to='/friends'>
+                            <div className='icon-container'>
+                                <img src={logout} 
+                                     width='60' 
+                                     height='100' 
+                                    alt='Location'
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'flex-start',
+                                        alignSelf: 'center',
 
-                    <NavLink role='link' className='nav-item' to='/friends'>
-                        <div className='icon-container'>
-                            <img src={logout} 
-                                width='60' 
-                                height='80' 
-                                alt='Location'
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'flex-start',
-                                    alignSelf: 'center',
-                                    marginRight: '225px',
-                                    marginLeft: '-22px',
-                                    marginTop: '-90px',
-                                    margin: '0',
-                                    
-                                }} />
+                                        marginTop: '-90px',
+                                        margin: '0',
+                                        
+                                    }} />
 
-                        </div>
-                    </NavLink>
+                            </div>
+                        </NavLink>
+                    </div>
 
                 </div>
             </nav>

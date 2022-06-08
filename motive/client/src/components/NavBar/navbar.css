@@ -23,6 +23,22 @@ nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 5px;
-   
+    margin-top: 45px;
+
+    padding: 5px;
+}
+
+.left-corner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.right-corner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+
+    margin-right: 70px;
 }
