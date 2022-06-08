@@ -21,6 +21,7 @@ const VenuesPage = () => {
                 const headers = { 
                     'ContentType': 'application/json',
                 };
+                // for drink
                 if (typeChosen === 'drink'){
                     const result = await axios.post(`https://the-motive-one.herokuapp.com/drink_motive`,{
                         "latitude": lat,
