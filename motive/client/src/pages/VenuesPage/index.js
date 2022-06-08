@@ -22,7 +22,7 @@ const VenuesPage = () => {
                     'ContentType': 'application/json',
                 };
                 if (typeChosen === 'drink'){
-                    const result = await axios.post(`http://127.0.0.1:7777/drink_motive`,{
+                    const result = await axios.post(`https://the-motive-one.herokuapp.com/drink_motive`,{
                         "latitude": lat,
                         "longitude": long,
                         "category": drinkCategory
@@ -33,7 +33,7 @@ const VenuesPage = () => {
                 }
                 else {
                     console.log("from redux: ", typeChosen, long, lat, foodCategory)
-                    const result = await axios.post(`http://127.0.0.1:7777/food_motive`,{
+                    const result = await axios.post(`https://the-motive-one.herokuapp.com/drink_motive`,{
                         "latitude": lat,
                         "longitude": long,
                         "category": foodCategory
