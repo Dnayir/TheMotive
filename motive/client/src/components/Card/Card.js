@@ -4,7 +4,7 @@ import Overlay from './Overlay';
 import Modal from './Modal';
 import { AnimatePresence } from 'framer-motion';
 
-const Card = ({ data }) => {
+const Card = ({ venueName, venueType, venueDistance, venueAddress }) => {
     const [open, setOpen ] = useState(false);
 
     const openModal = () => {
@@ -17,11 +17,11 @@ const Card = ({ data }) => {
 
     return (
         <>
-            <Venue data={data} open={openModal} />
+            <Venue venueName={venueName} venueType={venueType} venueDistance={venueDistance} venueAddress={venueAddress} open={openModal} />
             <AnimatePresence>
                 {open && (
                     <Overlay close={closeModal}>
-                        <Modal data={data} close={closeModal} />
+                        <Modal venueType={venueType} venueDistance={venueDistance} venueAddress={venueAddress}  close={closeModal} />
                     </Overlay>
                 )}
             </AnimatePresence>
