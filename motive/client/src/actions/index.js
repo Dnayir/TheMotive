@@ -7,43 +7,37 @@ const loadUsername = username => ({
     payload: username
 });
 
-export const setUsername = username => {
-    return async dispatch => {
-        dispatch(loadUsername(username));
-    };
-};
-
 
 /// --------> LOCATION | DEFINING PAYLOAD & EXPORTING FUNCTION <------ ///
-const loadLocation = location => ({
+export const setLocation = location => ({
     type: 'SET_LOCATION',
     payload: location
 });
 
-export const setLocation = location => {
-    return async dispatch => {
-        dispatch(loadLocation(location));
-    };
-};
+// export const setLocation = location => {
+//     return async dispatch => {
+//         dispatch(loadLocation(location));
+//     };
+// };
 
 
 /// --------> FOOD CATEGORY | DEFINING PAYLOAD & FETCHING <--------- ///
-const loadFoodVenues = foodCategory => ({
+export const setFoodCategory = foodCategory => ({
     type: 'SET_FOOD_CATEGORY',
     payload: foodCategory
 })
 
-export const fetchFoodVenues = foodCategory => {
+// export const fetchFoodVenues = foodCategory => {
 
-    return async (dispatch) => {
-        try {
-            const { data } = await axios.get('http://localhost:3000/food_motive');
-            return data = dispatch(loadFoodVenues(foodCategory));
-        } catch(err) {
-            throw new Error(err.message)
-        }
-    }
-}
+//     return async (dispatch) => {
+//         try {
+//             const { data } = await axios.post('http://localhost:3000/food_motive');
+//             return data = dispatch(loadFoodVenues(foodCategory));
+//         } catch(err) {
+//             throw new Error(err.message)
+//         }
+//     }
+// }
 
 /// --------> DRINK CATEGORY | DEFINING PAYLOAD & FETCHING <--------- ///
 const loadDrinkVenues = drinkCategory => ({
@@ -51,17 +45,17 @@ const loadDrinkVenues = drinkCategory => ({
     payload: drinkCategory
 })
 
-export const fetchDrinkVenues = drinkCategory => {
+// export const fetchDrinkVenues = drinkCategory => {
 
-    return async (dispatch) => {
-        try {
-            const { data } = await axios.get('http://localhost:3000/drink_motive');
-            return data = dispatch(loadDrinkVenues(drinkCategory));
-        } catch(err) {
-            throw new Error(err.message)
-        }
-    }
-}
+//     return async (dispatch) => {
+//         try {
+//             const { data } = await axios.post('http://localhost:3000/drink_motive');
+//             return data = dispatch(loadDrinkVenues(drinkCategory));
+//         } catch(err) {
+//             throw new Error(err.message)
+//         }
+//     }
+// }
 
 
 /// -------> VENUE | DEFINING PAYLOAD & POST REQUEST <---------- ///
@@ -70,22 +64,22 @@ const loadVenue = ( lat, long, categories ) => ({
     payload: ( lat, long, categories )
 })
 
-export const getVenue = ( lat, long, categories ) => {
-    return async (dispatch) => {
-        try {
-            const foodVenue = await fetchFoodVenues( lat, long, categories );
-            const drinkVenue = await fetchDrinkVenues( lat, long, categories );
+// export const getVenue = ( lat, long, categories ) => {
+//     return async (dispatch) => {
+//         try {
+//             const foodVenue = await fetchFoodVenues( lat, long, categories );
+//             const drinkVenue = await fetchDrinkVenues( lat, long, categories );
             
-           dispatch(loadVenue(foodVenue || drinkVenue));
+//            dispatch(loadVenue(foodVenue || drinkVenue));
 
-        } catch (err) {
-            dispatch({
-                type: "SET_ERROR",
-                payload: err
-            })
-        }
-    };
-};
+//         } catch (err) {
+//             dispatch({
+//                 type: "SET_ERROR",
+//                 payload: err
+//             })
+//         }
+//     };
+// };
 
 
 

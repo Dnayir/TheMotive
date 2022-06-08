@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'
+import { useDispatch }from 'react-redux';
 import '../../pages/MotivePage/motive.css';
 import { NavBar } from '../../components';
-import { fetchFoodVenues } from '../../actions';
+import { setFoodCategory } from '../../actions';
 
 import TypeWriterEffect from 'react-typewriter-effect';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
@@ -9,9 +11,11 @@ import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 const FoodPage = () => {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    function handleFood(e) {
-        dispatch(fetchFoodVenues(e.currentTarget.value));
+    function handleCategory(e) {
+        dispatch(setFoodCategory(e.currentTarget.value));
         navigate('/venues');
     }
 
@@ -51,7 +55,7 @@ const FoodPage = () => {
                 <div className='category-container'>
                     
                     <DropdownButton 
-                                onClick={handleFood}
+                                onClick={handleCategory}
                                 id="category-button" 
                                 title="CATEGORY" 
                                 size="lg" 
@@ -59,9 +63,7 @@ const FoodPage = () => {
 
 
                             <Dropdown.Item as="button" value={17} >Science & Nature</Dropdown.Item>
-                           
-
-
+    
 
                      </DropdownButton >
                     

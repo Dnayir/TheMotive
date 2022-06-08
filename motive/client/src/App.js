@@ -1,4 +1,6 @@
 import './index.css';
+import { Provider } from 'react-redux';
+import store from './store.js';
 import React, { useState, useEffect } from 'react';
 import * as Pages from './pages';
 import { Routes, Route } from 'react-router-dom';
@@ -22,19 +24,22 @@ function App() {
     <div id="app" className="container">
       <main>
         {/* <NavBar /> */}
-        <Routes>
-          <Route path="/" element={<Pages.LandingPage />} />
-          <Route path="/user" element={<Pages.UserPage />} />
 
-          
-          <Route path="/motive" element={<Pages.MotivePage />} />
-          <Route path="/food" element={<Pages.FoodPage />} />
-          <Route path="/drink" element={<Pages.DrinkPage />} />
-          <Route path="/venues" element={<Pages.VenuesPage />} />
-          <Route path="/review" element={<Pages.ReviewPage />} />
+        <Provider store={store}>
+          <Routes>
+            <Route path="/" element={<Pages.LandingPage />} />
+            <Route path="/user" element={<Pages.UserPage />} />
 
-          <Route path="*" element={<Pages.NotFoundPage />} />
-        </Routes>
+            
+            <Route path="/motive" element={<Pages.MotivePage />} />
+            <Route path="/food" element={<Pages.FoodPage />} />
+            <Route path="/drink" element={<Pages.DrinkPage />} />
+            <Route path="/venues" element={<Pages.VenuesPage />} />
+            <Route path="/review" element={<Pages.ReviewPage />} />
+
+            <Route path="*" element={<Pages.NotFoundPage />} />
+          </Routes>
+        </Provider>
       </main>
     </div>
   );

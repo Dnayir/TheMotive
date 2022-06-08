@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate, useDispatch } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch }from 'react-redux';
 import './motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
@@ -15,7 +16,7 @@ import TypeWriterEffect from 'react-typewriter-effect';
 const MotivePage = () => {
     
     
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const navigate = useNavigate();
 
     function handleFood(e) {

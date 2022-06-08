@@ -1,25 +1,33 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import '../../pages/MotivePage/motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { NavBar } from '../../components';
-import { fetchDrinkVenues } from '../../actions';
+
 import TypeWriterEffect from 'react-typewriter-effect';
 
 const DrinkPage = () => {
 
     // ----> NEEDS NEW DRINK ANIMATED ICONS!
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+
     function handleBar(e) {
         // NEED TO SPECIFY IT IS A BAR CATEGORY
-        dispatch(fetchDrinkVenues(e.currentTarget.value));
-        navigate('/venues');
+        // dispatch(fetchDrinkVenues(e.currentTarget.value));
+        // navigate('/venues');
+        console.log();
     }
 
     function handlePub(e) {
         // NEED TO SPECIFY IT IS A PUB CATEGORY
-        dispatch(fetchDrinkVenues(e.currentTarget.value));
-        navigate('/venues');
+        // dispatch(fetchDrinkVenues(e.currentTarget.value));
+        // navigate('/venues');
+        console.log();
     }
    
     return (
