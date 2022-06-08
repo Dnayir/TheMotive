@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import '../../pages/MotivePage/motive.css';
+import './food.css';
 import { NavBar } from '../../components';
 import { setFoodCategory } from '../../actions';
 
@@ -31,19 +31,18 @@ const FoodPage = () => {
                 <div className='typewriter'>
                     <TypeWriterEffect 
                         textStyle={{
+                            color: '#4DA537',
+                            textShadow: '2px 2px 2px  #FF5900',
                             fontFamily: 'monospace',
                             fontWeight: 'bold',
                             fontSize: '3.7em',
                             textAlign: 'center',
                             lineHeight: '1.3',
-                            textShadow: '7px 7px 7px  #FF5900',
-                            color: '#ffffff',
+
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             marginTop: '100px',
-        
-                    
                         }}
                         cursorColor='#da3422'
                         text='WHAT\S THE VIBE?'
@@ -57,112 +56,121 @@ const FoodPage = () => {
                 <br></br>
 
                 <div className='category-container'>
-                    <form onSubmit={handleCategory}>
-                        <select name="category">
+
+                    <form onSubmit={handleCategory} >
+
+                        <select name="category" >
                             <option value='African'>African</option>
                             <option value='American'>American</option>
+                            <option value='Afghan'>Afghan</option>
+                            <option value='African'>African</option>
+                            <option value='American'>American</option>
+                            <option value='Arepa'>Arepa</option>
+                            <option value='Argentinian'>Argentinian</option>
+                            <option value='Armenian'>Armenian</option>
+                            <option value='Asian'>Asian</option>
+                            <option value='Australian'>Australian</option>
+                            <option value='Austrian'>Austrian</option>
+                            <option value='Bangladeshi'>Bangladeshi</option>
+                            <option value='Belarusian'>Belarusian</option>
+                            <option value='Belgian'>Belgian</option>
+                            <option value='Bosnian'>Bosnian</option>
+                            <option value='Brazilian'>Brazilian</option>
+                            <option value='Bulgarian'>Bulgarian</option>
+                            <option value='Burmese'>Burmese</option>
+                            <option value='Cajun'>Cajun</option>
+                            <option value='Cambodian'>Cambodian</option>
+                            <option value='Caribbean'>Caribbean</option>
+                            <option value='Caucasian'>Caucasian</option>
+                            <option value='Chinese'>Chinese</option>
+                            <option value='Colombian'>Colombian</option>
+                            <option value='Cuban'>Cuban</option>
+                            <option value='Czech'>Czech</option>
+                            <option value='Dumpling'>Dumpling</option>
+                            <option value='Dutch'>Dutch</option>
+                            <option value='Eastern European'>Eastern European</option>
+                            <option value='Egyptian'>Egyptian</option>
+                            <option value='Empanada'>Empanada</option>
+                            <option value='English'>English</option>
+                            <option value='Ethiopian'>Ethiopian</option>
+                            <option value='Falafel'>Falafel</option>
+                            <option value='Fast Food'>Fast Food</option>
+                            <option value='Filipino'>Filipino</option>
+                            <option value='French'>French</option>
+                            <option value='German'>German</option>
+                            <option value='Greek'>Greek</option>
+                            <option value='Halal'>Halal</option>
+                            <option value='Hawaiian'>Hawaiian</option>
+                            <option value='Himalayan'>Himalayan</option>
+                            <option value='Honduran'>Honduran</option>
+                            <option value='Hotpot'>Hotpot</option>
+                            <option value='Hungarian'>Hungarian</option>
+                            <option value='Indian'>Indian</option>
+                            <option value='Indonesian'>Indonesian</option>
+                            <option value='Iraqi'>Iraqi</option>
+                            <option value='Israeli'>Israeli</option>
+                            <option value='Japanese'>Japanese</option>
+                            <option value='Italian'>Italian</option>
+                            <option value='Jewish'>Jewish</option>
+                            <option value='Kebab'>Kebab</option>
+                            <option value='Korean'>Korean</option>
+                            <option value='Kurdish'>Kurdish</option>
+                            <option value='Latin American'>Latin American</option>
+                            <option value='Lebanese'>Lebanese</option>
+                            <option value='Malay'>Malay</option>
+                            <option value='Mauritian'>Mauritian</option>
+                            <option value='Mediterranean'>Mediterranean</option>
+                            <option value='Mexican'>Mexican</option>
+                            <option value='Middle Eastern'>Middle Eastern</option>
+                            <option value='Modern European'>Modern European</option>
+                            <option value='Molecular Gastronomy'>Molecular Gastronomy</option>
+                            <option value='Mongolian'>Mongolian</option>
+                            <option value='Moroccan'>Moroccan</option>
+                            <option value='New American'>New American</option>
+                            <option value='Noodle'>Noodle</option>
+                            <option value='Pakistani'>Pakistani</option>
+                            <option value='Persian'>Persian</option>
+                            <option value='Peruvian'>Peruvian</option>
+                            <option value='Polish'>Polish</option>
+                            <option value='Portuguese'>Portuguese</option>
+                            <option value='Poutine'>Poutine</option>
+                            <option value='Puerto Rican'>Puerto Rican</option>
+                            <option value='Romanian'>Romanian</option>
+                            <option value='Russian'>Russian</option>
+                            <option value='Salad'>Salad</option>
+                            <option value='Salvadoran'>Salvadoran</option>
+                            <option value='Sandwich'>Sandwich</option>
+                            <option value='Satay'>Satay</option>
+                            <option value='Scandinavian'>Scandinavian</option>
+                            <option value='Scottish'>Scottish</option>
+                            <option value='Seafood'>Seafood</option>
+                            <option value='Shawarma'>Shawarma</option>
+                            <option value='Singaporean'>Singaporean</option>
+                            <option value='Slovak'>Slovak</option>
+                            <option value='Soup'>Soup</option>
+                            <option value='South American'>South American</option>
+                            <option value='Southern'>Southern</option>
+                            <option value='Spanish'>Spanish</option>
+                            <option value='Sri Lankan'>Sri Lankan</option>
+                            <option value='Swiss'>Swiss</option>
+                            <option value='Syrian'>Syrian</option>
+                            <option value='Tatar'>Tatar</option>
+                            <option value='Thai'>Thai</option>
+                            <option value='Tibetan'>Tibetan</option>
+                            <option value='Turkish'>Turkish</option>
+                            <option value='Ukrainian'>Ukrainian</option>
+                            <option value='Vegan and Vegetarian'>Vegan and Vegetarian</option>
+                            <option value='Venezuelan'>Venezuelan</option>
+                            <option value='Vietnamese'>Vietnamese</option>
+                            <option value='Yemeni'>Yemeni</option>
+                            <option value='all'>all</option>
+
                         </select>
-                        <input type="submit" value="Select"/>
+                        <span className='button-container'>
+                            <input type="submit" value="Select Cuisine" />
+                        </span>
                     </form>
-{/* <Dropdown.Item as='button' value=Arepa> Arepa </Dropdown.Item>
-<Dropdown.Item as='button' value=Argentinian> Argentinian </Dropdown.Item>
-<Dropdown.Item as='button' value=Armenian> Armenian </Dropdown.Item>
-<Dropdown.Item as='button' value=Asian> Asian </Dropdown.Item>
-<Dropdown.Item as='button' value=Australian> Australian </Dropdown.Item>
-<Dropdown.Item as='button' value=Austrian> Austrian </Dropdown.Item>
-<Dropdown.Item as='button' value=Bangladeshi> Bangladeshi </Dropdown.Item>
-<Dropdown.Item as='button' value=Belarusian> Belarusian </Dropdown.Item>
-<Dropdown.Item as='button' value=Belgian> Belgian </Dropdown.Item>
-<Dropdown.Item as='button' value=Bosnian> Bosnian </Dropdown.Item>
-<Dropdown.Item as='button' value=Brazilian> Brazilian </Dropdown.Item>
-<Dropdown.Item as='button' value=Bulgarian> Bulgarian </Dropdown.Item>
-<Dropdown.Item as='button' value=Burmese> Burmese </Dropdown.Item>
-<Dropdown.Item as='button' value=Cajun> Cajun </Dropdown.Item>
-<Dropdown.Item as='button' value=Cambodian> Cambodian </Dropdown.Item>
-<Dropdown.Item as='button' value=Caribbean> Caribbean </Dropdown.Item>
-<Dropdown.Item as='button' value=Caucasian> Caucasian </Dropdown.Item>
-<Dropdown.Item as='button' value=Chinese> Chinese </Dropdown.Item>
-<Dropdown.Item as='button' value=Colombian> Colombian </Dropdown.Item>
-<Dropdown.Item as='button' value=Cuban> Cuban </Dropdown.Item>
-<Dropdown.Item as='button' value=Czech> Czech </Dropdown.Item>
-<Dropdown.Item as='button' value=Dumpling> Dumpling </Dropdown.Item>
-<Dropdown.Item as='button' value=Dutch> Dutch </Dropdown.Item>
-<Dropdown.Item as='button' value=Eastern European> Eastern European </Dropdown.Item>
-<Dropdown.Item as='button' value=Egyptian> Egyptian </Dropdown.Item>
-<Dropdown.Item as='button' value=Empanada> Empanada </Dropdown.Item>
-<Dropdown.Item as='button' value=English> English </Dropdown.Item>
-<Dropdown.Item as='button' value=Ethiopian> Ethiopian </Dropdown.Item>
-<Dropdown.Item as='button' value=Falafel> Falafel </Dropdown.Item>
-<Dropdown.Item as='button' value=Fast Food> Fast Food </Dropdown.Item>
-<Dropdown.Item as='button' value=Filipino> Filipino </Dropdown.Item>
-<Dropdown.Item as='button' value=French> French </Dropdown.Item>
-<Dropdown.Item as='button' value=German> German </Dropdown.Item>
-<Dropdown.Item as='button' value=Greek> Greek </Dropdown.Item>
-<Dropdown.Item as='button' value=Halal> Halal </Dropdown.Item>
-<Dropdown.Item as='button' value=Hawaiian> Hawaiian </Dropdown.Item>
-<Dropdown.Item as='button' value=Himalayan> Himalayan </Dropdown.Item>
-<Dropdown.Item as='button' value=Honduran> Honduran </Dropdown.Item>
-<Dropdown.Item as='button' value=Hotpot> Hotpot </Dropdown.Item>
-<Dropdown.Item as='button' value=Hungarian> Hungarian </Dropdown.Item>
-<Dropdown.Item as='button' value=Indian> Indian </Dropdown.Item>
-<Dropdown.Item as='button' value=Indonesian> Indonesian </Dropdown.Item>
-<Dropdown.Item as='button' value=Iraqi> Iraqi </Dropdown.Item>
-<Dropdown.Item as='button' value=Israeli> Israeli </Dropdown.Item>
-<Dropdown.Item as='button' value=Japanese> Japanese </Dropdown.Item>
-<Dropdown.Item as='button' value=Italian> Italian </Dropdown.Item>
-<Dropdown.Item as='button' value=Jewish> Jewish </Dropdown.Item>
-<Dropdown.Item as='button' value=Kebab> Kebab </Dropdown.Item>
-<Dropdown.Item as='button' value=Korean> Korean </Dropdown.Item>
-<Dropdown.Item as='button' value=Kurdish> Kurdish </Dropdown.Item>
-<Dropdown.Item as='button' value=Latin American> Latin American </Dropdown.Item>
-<Dropdown.Item as='button' value=Lebanese> Lebanese </Dropdown.Item>
-<Dropdown.Item as='button' value=Malay> Malay </Dropdown.Item>
-<Dropdown.Item as='button' value=Mauritian> Mauritian </Dropdown.Item>
-<Dropdown.Item as='button' value=Mediterranean> Mediterranean </Dropdown.Item>
-<Dropdown.Item as='button' value=Mexican> Mexican </Dropdown.Item>
-<Dropdown.Item as='button' value=Middle Eastern> Middle Eastern </Dropdown.Item>
-<Dropdown.Item as='button' value=Modern European> Modern European </Dropdown.Item>
-<Dropdown.Item as='button' value=Molecular Gastronomy> Molecular Gastronomy </Dropdown.Item>
-<Dropdown.Item as='button' value=Mongolian> Mongolian </Dropdown.Item>
-<Dropdown.Item as='button' value=Moroccan> Moroccan </Dropdown.Item>
-<Dropdown.Item as='button' value=New American> New American </Dropdown.Item>
-<Dropdown.Item as='button' value=Noodle> Noodle </Dropdown.Item>
-<Dropdown.Item as='button' value=Pakistani> Pakistani </Dropdown.Item>
-<Dropdown.Item as='button' value=Persian> Persian </Dropdown.Item>
-<Dropdown.Item as='button' value=Peruvian> Peruvian </Dropdown.Item>
-<Dropdown.Item as='button' value=Polish> Polish </Dropdown.Item>
-<Dropdown.Item as='button' value=Portuguese> Portuguese </Dropdown.Item>
-<Dropdown.Item as='button' value=Poutine> Poutine </Dropdown.Item>
-<Dropdown.Item as='button' value=Puerto Rican> Puerto Rican </Dropdown.Item>
-<Dropdown.Item as='button' value=Romanian> Romanian </Dropdown.Item>
-<Dropdown.Item as='button' value=Russian> Russian </Dropdown.Item>
-<Dropdown.Item as='button' value=Salad> Salad </Dropdown.Item>
-<Dropdown.Item as='button' value=Salvadoran> Salvadoran </Dropdown.Item>
-<Dropdown.Item as='button' value=Sandwich> Sandwich </Dropdown.Item>
-<Dropdown.Item as='button' value=Satay> Satay </Dropdown.Item>
-<Dropdown.Item as='button' value=Scandinavian> Scandinavian </Dropdown.Item>
-<Dropdown.Item as='button' value=Scottish> Scottish </Dropdown.Item>
-<Dropdown.Item as='button' value=Seafood> Seafood </Dropdown.Item>
-<Dropdown.Item as='button' value=Shawarma> Shawarma </Dropdown.Item>
-<Dropdown.Item as='button' value=Singaporean> Singaporean </Dropdown.Item>
-<Dropdown.Item as='button' value=Slovak> Slovak </Dropdown.Item>
-<Dropdown.Item as='button' value=Soup> Soup </Dropdown.Item>
-<Dropdown.Item as='button' value=South American> South American </Dropdown.Item>
-<Dropdown.Item as='button' value=Southern> Southern </Dropdown.Item>
-<Dropdown.Item as='button' value=Spanish> Spanish </Dropdown.Item>
-<Dropdown.Item as='button' value=Sri Lankan> Sri Lankan </Dropdown.Item>
-<Dropdown.Item as='button' value=Swiss> Swiss </Dropdown.Item>
-<Dropdown.Item as='button' value=Syrian> Syrian </Dropdown.Item>
-<Dropdown.Item as='button' value=Tatar> Tatar </Dropdown.Item>
-<Dropdown.Item as='button' value=Thai> Thai </Dropdown.Item>
-<Dropdown.Item as='button' value=Tibetan> Tibetan </Dropdown.Item>
-<Dropdown.Item as='button' value=Turkish> Turkish </Dropdown.Item>
-<Dropdown.Item as='button' value=Ukrainian> Ukrainian </Dropdown.Item>
-<Dropdown.Item as='button' value=Vegan and Vegetarian> Vegan and Vegetarian </Dropdown.Item>
-<Dropdown.Item as='button' value=Venezuelan> Venezuelan </Dropdown.Item>
-<Dropdown.Item as='button' value=Vietnamese> Vietnamese </Dropdown.Item>
-<Dropdown.Item as='button' value=Yemeni> Yemeni </Dropdown.Item>
-<Dropdown.Item as='button' value=all> all </Dropdown.Item> */}
+
                 </div>
             
             

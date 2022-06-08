@@ -3,8 +3,8 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import '../../pages/MotivePage/motive.css';
-import foodGif from '../../images/food.gif';
-import drinkGif from '../../images/drink.gif';
+import barGif from '../../images/bar.gif';
+import pubGif from '../../images/pub.gif';
 
 import { NavBar } from '../../components';
 import { loadDrinkCategory } from '../../actions';
@@ -38,19 +38,18 @@ const DrinkPage = () => {
                 <div className='typewriter'>
                     <TypeWriterEffect 
                         textStyle={{
+                            color: '#4DA537',
+                            textShadow: '2px 2px 2px  #FF5900',
                             fontFamily: 'monospace',
                             fontWeight: 'bold',
                             fontSize: '3.7em',
                             textAlign: 'center',
                             lineHeight: '1.3',
-                            textShadow: '7px 7px 7px  #FF5900',
-                            color: '#ffffff',
+
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             marginTop: '100px',
-        
-                    
                         }}
                         cursorColor='#da3422'
                         text='WHAT\S THE VIBE?'
@@ -71,7 +70,7 @@ const DrinkPage = () => {
                                 <img 
                                 // BAR ANIMATED ICON NEEDED
 
-                                    src={foodGif}
+                                    src={barGif}
                                     onClick={handleBar}
                                     value='bar'
                                     width='170'
@@ -96,7 +95,7 @@ const DrinkPage = () => {
                                 <img 
                                 // PUB ANIMATED ICON NEEDED
 
-                                        src={drinkGif} 
+                                        src={pubGif} 
                                         onClick={handlePub}
                                         value='Pub'
                                         width='170'

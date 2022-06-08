@@ -62,7 +62,7 @@ const HeaderText = styled.h2`
 const SmallText = styled.h5`
   color: #431c16;
   font-weight: 900;
-  font-size: 11px;
+  font-size: 16px;
   font-family: monospace;
   z-index: 10;
   margin: 0;
@@ -74,6 +74,7 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 1.8em;
+  margin-top: 25px;
 `;
 
 const backdropVariants = {

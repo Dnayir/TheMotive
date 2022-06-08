@@ -32,19 +32,19 @@ const MotivePage = () => {
                 <div className='typewriter'>
                     <TypeWriterEffect 
                         textStyle={{
+                            color: '#4DA537',
+                            textShadow: '2px 2px 2px  #FF5900',
                             fontFamily: 'monospace',
                             fontWeight: 'bold',
                             fontSize: '3.7em',
                             textAlign: 'center',
                             lineHeight: '1.3',
-                            textShadow: '7px 7px 7px  #FF5900',
-                            color: '#ffffff',
+
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             marginTop: '100px',
-        
-                    
+    
                         }}
                         cursorColor='#da3422'
                         text='WHAT\S THE MOTIVE?'

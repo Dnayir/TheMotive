@@ -5,7 +5,7 @@ export const BoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 15px;
 `;
 
 export const FormContainer = styled.form`
@@ -33,7 +33,7 @@ export const BoldLink = styled.a`
 export const Input = styled.input`
   background-color: #431c16;
   width: 100%;
-  height: 42px;
+  height: 30px;
   outline: none;
   border: 1px solid rgba(200, 200, 200, 0.3);
   border-radius: 80px;
