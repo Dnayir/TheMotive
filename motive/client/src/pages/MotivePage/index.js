@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
-import { useNavigate, useDispatch } from 'react-router-dom'
+import React from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
 import './motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
 import { NavBar } from '../../components';
-
-import { NavLink } from 'react-router-dom';
 import TypeWriterEffect from 'react-typewriter-effect';
-
-
-
-
 
 const MotivePage = () => {
     
-    
-    const dispatch = useDispatch();
+    // ----> ONLY NAVIGATE NECESSARY 
     const navigate = useNavigate();
 
     function handleFood(e) {
@@ -30,7 +23,7 @@ const MotivePage = () => {
 
     return (
         <div className='main-container'>
-       
+                
                 <NavBar />
                 <div className='typewriter'>
                     <TypeWriterEffect 

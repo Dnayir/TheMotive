@@ -1,24 +1,33 @@
 import React from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import '../../pages/MotivePage/motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
+
 import { NavBar } from '../../components';
-import { fetchDrinkVenues } from '../../actions';
+import { loadDrinkCategory } from '../../actions';
 import TypeWriterEffect from 'react-typewriter-effect';
 
 const DrinkPage = () => {
 
     // ----> NEEDS NEW DRINK ANIMATED ICONS!
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     function handleBar(e) {
         // NEED TO SPECIFY IT IS A BAR CATEGORY
-        dispatch(fetchDrinkVenues(e.currentTarget.value));
+        let updateBar = selectedBar => dispatch(loadDrinkCategory(selectedBar));
+        updateBar(e.currentTarget.value)
         navigate('/venues');
     }
 
     function handlePub(e) {
         // NEED TO SPECIFY IT IS A PUB CATEGORY
-        dispatch(fetchDrinkVenues(e.currentTarget.value));
+        let updateBar = selectedPub => dispatch(loadDrinkCategory(selectedPub));
+        updateBar(e.currentTarget.value)
         navigate('/venues');
     }
    
@@ -64,6 +73,7 @@ const DrinkPage = () => {
 
                                     src={foodGif}
                                     onClick={handleBar}
+                                    value='bar'
                                     width='170'
                                     height='200'
                                     alt='Food Gif'
@@ -88,6 +98,7 @@ const DrinkPage = () => {
 
                                         src={drinkGif} 
                                         onClick={handlePub}
+                                        value='Pub'
                                         width='170'
                                         height='200'
                                         alt='Food Gif'
