@@ -43,6 +43,8 @@ db.init_app(app)
 ############################################################################################################################################################
                                                                 #Api Routes#
 ############################################################################################################################################################
+
+
 @app.route("/data", methods=["GET"])
 def index():
     return jsonify({
@@ -67,55 +69,64 @@ def get_current_user():
 
 @app.route("/register", methods=["POST"])
 def register_user():
-    email = request.json["email"]
-    password = request.json["password"]
-    username = request.json['username']
+    try:
+        email = request.json["email"]
+        password = request.json["password"]
+        username = request.json['username']
 
-    user_exists = User.query.filter_by(email=email).first() is not None
+        user_exists = User.query.filter_by(email=email).first() is not None
 
-    if user_exists:
-        return jsonify({"error": "User already exists"}), 409
+        if user_exists:
+            return jsonify({"error": "User already exists"}), 409
 
-    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-    new_user = User(email=email, password=hashed_password, username=username)
-    db.session.add(new_user)
-    db.session.commit()
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        new_user = User(email=email, password=hashed_password, username=username)
+        db.session.add(new_user)
+        db.session.commit()
 
-    session["user_id"] = new_user.id
+        session["user_id"] = new_user.id
 
-    return jsonify({
-        "id": new_user.id,
-        "email": new_user.email,
-        "username": new_user.username
-    })
-
+        return jsonify({
+            "id": new_user.id,
+            "email": new_user.email,
+            "username": new_user.username
+        })
+    except:
+        return '400 Error: Bad Request', 400
 
 
 @app.route("/login", methods=["POST"])
 def login_user():
-    email = request.json["email"]
-    password = request.json["password"]
+    try:
+        email = request.json["email"]
+        password = request.json["password"]
 
-    user = User.query.filter_by(email=email).first()
+        user = User.query.filter_by(email=email).first()
 
-    if user is None:
-        return jsonify({"error": "Unauthorised"}), 401 
+        if user is None:
+            return jsonify({"error": "Unauthorised"}), 401 
 
-    if not bcrypt.check_password_hash(user.password, password):
-         return jsonify({"error": "Unauthorised"}), 401
+        if not bcrypt.check_password_hash(user.password, password):
+            return jsonify({"error": "Unauthorised"}), 401
 
-    session["user_id"] = user.id
+        session["user_id"] = user.id
 
-    return jsonify({
-       "id": user.id,
-       "username": user.username,
-       "email": user.email
-    })
+        return jsonify({
+        "id": user.id,
+        "username": user.username,
+        "email": user.email
+        })
+    except:
+        return '400 Error: Bad Request', 400
+
 
 @app.route("/logout", methods=["POST"])
 def logout_user():
-    session.pop("user_id")
-    return "200"
+    try:
+        session.pop("user_id")
+        return 200
+    except:
+        return '405 Method Not Allowed', 405
 
 
 @app.route('/food_motive', methods=["POST"])
@@ -177,24 +188,6 @@ def fetch_drink_venues():
 
             url = "https://api.foursquare.com/v3/places/search?ll={},{}&categories={}&sort=DISTANCE&limit=25".format(lat,long,categories)
 
-@app.route("/review", methods=["POST"])
-def user_review():
-    username = request.json["username"]
-    restaurant_name = request.json["restaurant_name"]
-    type_of_food = request.json["type_of_food"]
-    review_description = request.json['review_description']
-
-    new_review = Reviews(username=username, restaurant_name=restaurant_name, type_of_food=type_of_food, review_description=review_description)
-
-
-    return jsonify({
-        "username": new_review.username,
-        "email": new_review.restaurant_name,
-        "type_of_food": new_review.type_of_food,
-        "review_description":new_review.review_description
-    })
-
-
             headers = {
                 "Accept": "application/json",
                 "Authorization": environ.get("FOURSQUARE_API_KEY")
@@ -210,34 +203,36 @@ def user_review():
             return '400 Error: Bad Request', 400
 
 
+@app.route("/review", methods=["POST"])
+def user_review():
+    try:
+        username = request.json["username"]
+        restaurant_name = request.json["restaurant_name"]
+        type_of_food = request.json["type_of_food"]
+        review_description = request.json['review_description']
 
-# @app.route('/food_list')
-# def fetch_indiviudal_venue():
-#     url = "https://the-fork-the-spoon.p.rapidapi.com/restaurants/v2/get-info"
+        new_review = Reviews(username=username, restaurant_name=restaurant_name, type_of_food=type_of_food, review_description=review_description)
 
-#     querystring = {"restaurantId":"522995"}
 
-#     headers = {
-#         "X-RapidAPI-Host": "the-fork-the-spoon.p.rapidapi.com",
-#         "X-RapidAPI-Key": environ.get("FORK_API_KEY")
-#     }
-
-#     response = requests.request("GET", url, headers=headers, params=querystring)
-
-#     print(response.text)
-#     jsonData = response.json()
-#     for item in jsonData:
-#         print(item)
-#     return jsonData
+        return jsonify({
+            "username": new_review.username,
+            "restaurant_name": new_review.restaurant_name,
+            "type_of_food": new_review.type_of_food,
+            "review_description":new_review.review_description
+        })
+    except:
+            return '400 Error: Bad Request', 400
 
 
 ############################################################################################################################################################
                                                                 #App Routes#
 ############################################################################################################################################################
 
+
 @app.errorhandler(exceptions.NotFound)
 def serve(err):
-    return send_from_directory(app.static_folder, "index.html"), 200
+    return send_from_directory(app.static_folder, "index.html")
+    
 
 
 if __name__ == "__main__": # pragma: no cover
@@ -248,9 +243,10 @@ if __name__ == "__main__": # pragma: no cover
                                                                 #App Functions#
 ############################################################################################################################################################
 
+
 def find_all_categories(min, max):
     result = ""
-    if max > min:
+    if max > min and min > 0 and max > 0:
         arr = []
         while min < max + 1:
             if min == max :
@@ -576,3 +572,8 @@ def get_category_numbers(choice):
         else:
             categories = 13065
             return categories
+
+
+############################################################################################################################################################
+                                                                #End Of Server#
+############################################################################################################################################################

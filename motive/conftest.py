@@ -9,6 +9,11 @@ def api():
 
 
 @pytest.fixture
+def nums():
+    return [[-10, 10], [10, -10]]
+
+
+@pytest.fixture
 def category_options():
     return [
             "Afghan",
