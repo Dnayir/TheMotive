@@ -1,6 +1,3 @@
-import axios from 'axios';
-import { Last } from 'react-bootstrap/esm/PageItem';
-
 
 /// --------> USERNAME | DEFINING PAYLOAD & EXPORTING FUNCTION <------ ///
 const setUsername = username => ({
@@ -83,6 +80,23 @@ export const loadDrinkCategory = drinkCategory => {
 //     type: 'SET_VENUE',
 //     payload: ( lat, long, categories )
 // })
+
+
+
+const setType = type => ({
+    type: 'SET_TYPE',
+    payload: type
+})
+export const loadType = type => {
+    return async dispatch => { 
+        try {
+            dispatch(setType(type));
+        } catch(err) {
+            console.warn(err.message);
+            dispatch({type: 'SET_ERROR', payload: err.message})
+        }
+    } 
+}
 
 
 

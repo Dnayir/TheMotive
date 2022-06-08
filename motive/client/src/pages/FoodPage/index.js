@@ -23,9 +23,6 @@ const FoodPage = () => {
         dispatch(setFoodCategory(data.get("category")));
         navigate('/venues');
     }
-
-   
-
   
     return (
         <div className='main-container'>
