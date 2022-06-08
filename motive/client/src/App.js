@@ -21,13 +21,18 @@ function App() {
   return (
     <div id="app" className="container">
       <main>
-        <NavBar />
+        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Pages.LandingPage />} />
-          <Route path="/Login" element={<Pages.LoginPage />} />
-          <Route path="/Register" element={<Pages.RegisterPage />} />
-          <Route path="/User" element={<Pages.UserPage />} />
-          <Route path="/connect" element={<Deploy prop={state} />} />
+          <Route path="/user" element={<Pages.UserPage />} />
+
+          
+          <Route path="/motive" element={<Pages.MotivePage />} />
+          <Route path="/food" element={<Pages.FoodPage />} />
+          <Route path="/drink" element={<Pages.DrinkPage />} />
+          <Route path="/venues" element={<Pages.VenuesPage />} />
+          <Route path="/review" element={<Pages.ReviewPage />} />
+
           <Route path="*" element={<Pages.NotFoundPage />} />
         </Routes>
       </main>
