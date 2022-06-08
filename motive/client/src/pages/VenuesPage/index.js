@@ -23,7 +23,7 @@ const VenuesPage = () => {
                 };
                 // for drink
                 if (typeChosen === 'drink'){
-                    const result = await axios.post(`https://the-motive-one.herokuapp.com/drink_motive`,{
+                    const result = await axios.post(`http://localhost:3000/drink_motive`,{
                         "latitude": lat,
                         "longitude": long,
                         "category": drinkCategory
@@ -34,7 +34,7 @@ const VenuesPage = () => {
                 }
                 else {
                     console.log("from redux: ", typeChosen, long, lat, foodCategory)
-                    const result = await axios.post(`https://the-motive-one.herokuapp.com/food_motive`,{
+                    const result = await axios.post(`http://localhost:3000/food_motive`,{
                         "latitude": lat,
                         "longitude": long,
                         "category": foodCategory
