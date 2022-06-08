@@ -5,17 +5,21 @@ import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
 import { NavBar } from '../../components';
 import TypeWriterEffect from 'react-typewriter-effect';
+import { useDispatch } from 'react-redux';
+import { loadType } from '../../actions';
 
 const MotivePage = () => {
-    
-    // ----> ONLY NAVIGATE NECESSARY 
+
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     function handleFood(e) {
+        dispatch(loadType('food'));
         navigate('/food');
     }
 
     function handleDrink(e) {
+        dispatch(loadType('drink'));
         navigate('/drink');
     }
 
