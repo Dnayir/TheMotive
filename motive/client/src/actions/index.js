@@ -1,91 +1,101 @@
 import axios from 'axios';
+import { Last } from 'react-bootstrap/esm/PageItem';
 
 
 /// --------> USERNAME | DEFINING PAYLOAD & EXPORTING FUNCTION <------ ///
-const loadUsername = username => ({
+const setUsername = username => ({
     type: 'SET_USERNAME',
     payload: username
 });
 
-export const setUsername = username => {
-    return async dispatch => {
-        dispatch(loadUsername(username));
-    };
-};
+export const loadUsername = username => {
+    return async dispatch => { 
+        try {
+            dispatch(setUsername(username));
+        } catch(err) {
+            console.warn(err.message);
+            dispatch({type: 'SET_ERROR', payload: err.message})
+        }
+    } 
+}
 
 
 /// --------> LOCATION | DEFINING PAYLOAD & EXPORTING FUNCTION <------ ///
-const loadLocation = location => ({
-    type: 'SET_LOCATION',
-    payload: location
+const setLong = long => ({
+    type: 'SET_LONG',
+    payload: long
 });
 
-export const setLocation = location => {
-    return async dispatch => {
-        dispatch(loadLocation(location));
-    };
-};
+export const loadLong = long => {
+    return async dispatch => { 
+        try {
+            dispatch(setLong(long));
+        } catch(err) {
+            console.warn(err.message);
+            dispatch({type: 'SET_ERROR', payload: err.message})
+        }
+    } 
+}
+
+const setLat = lat => ({
+    type: 'SET_LAT',
+    payload: lat
+});
+
+export const loadLat = lat => {
+    return async dispatch => { 
+        try {
+            dispatch(setLat(lat));
+        } catch(err) {
+            console.warn(err.message);
+            dispatch({type: 'SET_ERROR', payload: err.message})
+        }
+    } 
+}
 
 
 /// --------> FOOD CATEGORY | DEFINING PAYLOAD & FETCHING <--------- ///
-const loadFoodVenues = foodCategory => ({
+const setFoodCategory = foodCategory => ({
     type: 'SET_FOOD_CATEGORY',
     payload: foodCategory
 })
-
-export const fetchFoodVenues = foodCategory => {
-
-    return async (dispatch) => {
+export const loadFoodCategory = foodCategory => {
+    return async dispatch => { 
         try {
-            const { data } = await axios.get('http://localhost:3000/food_motive');
-            return data = dispatch(loadFoodVenues(foodCategory));
+            dispatch(setFoodCategory(foodCategory));
         } catch(err) {
-            throw new Error(err.message)
+            console.warn(err.message);
+            dispatch({type: 'SET_ERROR', payload: err.message})
         }
-    }
+    } 
 }
 
+
 /// --------> DRINK CATEGORY | DEFINING PAYLOAD & FETCHING <--------- ///
-const loadDrinkVenues = drinkCategory => ({
+const setDrinkCategory = drinkCategory => ({
     type: 'SET_DRINK_CATEGORY',
     payload: drinkCategory
 })
-
-export const fetchDrinkVenues = drinkCategory => {
-
-    return async (dispatch) => {
+export const loadDrinkCategory = drinkCategory => {
+    return async dispatch => { 
         try {
-            const { data } = await axios.get('http://localhost:3000/drink_motive');
-            return data = dispatch(loadDrinkVenues(drinkCategory));
+            dispatch(setDrinkCategory(drinkCategory));
         } catch(err) {
-            throw new Error(err.message)
+            console.warn(err.message);
+            dispatch({type: 'SET_ERROR', payload: err.message})
         }
-    }
+    } 
 }
 
 
+
 /// -------> VENUE | DEFINING PAYLOAD & POST REQUEST <---------- ///
-const loadVenue = ( lat, long, categories ) => ({
-    type: 'SET_VENUE',
-    payload: ( lat, long, categories )
-})
+// const loadVenue = ( lat, long, categories ) => ({
+//     type: 'SET_VENUE',
+//     payload: ( lat, long, categories )
+// })
 
-export const getVenue = ( lat, long, categories ) => {
-    return async (dispatch) => {
-        try {
-            const foodVenue = await fetchFoodVenues( lat, long, categories );
-            const drinkVenue = await fetchDrinkVenues( lat, long, categories );
-            
-           dispatch(loadVenue(foodVenue || drinkVenue));
 
-        } catch (err) {
-            dispatch({
-                type: "SET_ERROR",
-                payload: err
-            })
-        }
-    };
-};
 
 
 
