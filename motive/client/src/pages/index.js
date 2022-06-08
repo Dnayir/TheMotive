@@ -4,5 +4,6 @@ export { default as MotivePage } from './MotivePage';
 export { default as FoodPage } from './FoodPage';
 export { default as DrinkPage } from './DrinkPage';
 export { default as VenuesPage } from './VenuesPage';
+// export { default as FriendsPage } from './FriendsPage';
 export { default as ReviewPage } from './ReviewPage';
 export { default as NotFoundPage } from './NotFoundPage';
