@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import '../../pages/MotivePage/motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { NavBar } from '../../components';
 import { loadDrinkCategory } from '../../actions';
 import TypeWriterEffect from 'react-typewriter-effect';

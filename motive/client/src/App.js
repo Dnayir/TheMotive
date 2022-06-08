@@ -2,7 +2,7 @@ import './index.css';
 import React, { useState, useEffect } from 'react';
 import * as Pages from './pages';
 import { Routes, Route } from 'react-router-dom';
-import { Deploy, NavBar } from './components';
+
 
 function App() {
   const [state, setState] = useState({});
@@ -22,19 +22,22 @@ function App() {
     <div id="app" className="container">
       <main>
         {/* <NavBar /> */}
-        <Routes>
-          <Route path="/" element={<Pages.LandingPage />} />
-          <Route path="/user" element={<Pages.UserPage />} />
 
-          
-          <Route path="/motive" element={<Pages.MotivePage />} />
-          <Route path="/food" element={<Pages.FoodPage />} />
-          <Route path="/drink" element={<Pages.DrinkPage />} />
-          <Route path="/venues" element={<Pages.VenuesPage />} />
-          <Route path="/review" element={<Pages.ReviewPage />} />
+        
+          <Routes>
+            <Route path="/" element={<Pages.LandingPage />} />
+            <Route path="/user" element={<Pages.UserPage />} />
 
-          <Route path="*" element={<Pages.NotFoundPage />} />
-        </Routes>
+            
+            <Route path="/motive" element={<Pages.MotivePage />} />
+            <Route path="/food" element={<Pages.FoodPage />} />
+            <Route path="/drink" element={<Pages.DrinkPage />} />
+            <Route path="/venues" element={<Pages.VenuesPage />} />
+            <Route path="/review" element={<Pages.ReviewPage />} />
+
+            <Route path="*" element={<Pages.NotFoundPage />} />
+          </Routes>
+        
       </main>
     </div>
   );

@@ -60,7 +60,7 @@ const FoodPage = () => {
                 <div className='category-container'>
                     
                     <DropdownButton 
-                                onClick={handleFood}
+                                onClick={handleCategory}
                                 id="category-button" 
                                 title="CATEGORY" 
                                 size="lg" 
