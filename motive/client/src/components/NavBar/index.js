@@ -58,7 +58,7 @@ const NavBar = () => {
                         
 
                     {/* ---- MODAL BOX NEEDED FOR LOCATION ----- */}
-                    <button role='link' className='nav-item' onClick={handleUpdateLocation}>
+                    {/* <button role='link' className='nav-item' onClick={handleUpdateLocation}>
                         <div className='icon-container'>
                             <img src={location} 
                                 width='60' 
@@ -77,7 +77,7 @@ const NavBar = () => {
                                 }} />
 
                         </div>
-                    </button>
+                    </button> */}
 
                     <NavLink role='link' className='nav-item' to='/friends'>
                         <div className='icon-container'>
