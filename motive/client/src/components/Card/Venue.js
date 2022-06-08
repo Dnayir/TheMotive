@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const Venue = ({ data, open }) => {
 
     // ------> DATA FETCHING FROM THE API
-    const { categories, geocodes, imageUrl, location, } = data;
+    const { name, distance, imageUrl, location, } = data;
 
     return (
         <motion.div className='venue' 
@@ -21,13 +21,13 @@ const Venue = ({ data, open }) => {
                     />
                 </div>
                 <div className='venue-details'>
-                    <div className='venue-type'>{categories}</div>
+                    <div className='venue-type'>{name}</div>
                     <div className='venue-row'>
-                        <span className='venue-distance'>{geocodes}</span>
+                        <span className='venue-distance'>{distance}</span>
                     </div>
-                    {/* <div className='venue-row'>
+                    <div className='venue-row'>
                         <span className='venue-address'>{location}</span>
-                    </div> */}
+                    </div>
                     <div className='venue-row'>
                         <Feature iconName={'FaStreet'} iconLabel={location} />
                     </div>
