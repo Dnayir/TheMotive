@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './modal.css';
 import { setLocation } from '../../actions';
 import { Button, Modal } from 'react-bootstrap';
@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 export default function LocationModal() {
 
-    const location = useSelector(state = state.location);
+    const location = useSelector(state => state.location);
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -18,7 +19,7 @@ export default function LocationModal() {
 
 
     function handleLocation(e) {
-        dispatch(setLocation);
+        dispatch(setLocation('France'));
     }
 
     return (
