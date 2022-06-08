@@ -34,7 +34,7 @@ const VenuesPage = () => {
                 }
                 else {
                     console.log("from redux: ", typeChosen, long, lat, foodCategory)
-                    const result = await axios.post(`https://the-motive-one.herokuapp.com/drink_motive`,{
+                    const result = await axios.post(`https://the-motive-one.herokuapp.com/food_motive`,{
                         "latitude": lat,
                         "longitude": long,
                         "category": foodCategory
