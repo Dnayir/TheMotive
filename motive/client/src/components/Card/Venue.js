@@ -29,9 +29,9 @@ const Venue = ({ data, open }) => {
                         <span className='venue-address'>{location}</span>
                     </div> */}
                     <div className='venue-row'>
-                        <Feature iconName={'FaStreetView'} iconLabel={location} />
+                        <Feature iconName={'FaStreet'} iconLabel={location} />
                     </div>
-                </div>
+                </div>b 
             </div>
         </motion.div>
 

@@ -1,17 +1,21 @@
 import React from 'react';
 import '../../pages/MotivePage/motive.css';
 import { NavBar } from '../../components';
+import { fetchFoodVenues } from '../../actions';
+
 import TypeWriterEffect from 'react-typewriter-effect';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+
 
 const FoodPage = () => {
 
 
+    function handleFood(e) {
+        dispatch(fetchFoodVenues(e.currentTarget.value));
+        navigate('/venues');
+    }
 
-    // ----> use Navigate if statement depending on onClick event
-    // ----> NEEDS NEW DRINK ANIMATED ICONS!
-
-    // ----> onClick handlers for redirection
+  
     return (
         <div className='main-container'>
        
@@ -46,14 +50,16 @@ const FoodPage = () => {
 
                 <div className='category-container'>
                     
-                    <DropdownButton id="category-button" title="CATEGORY" size="lg" className='d-grid gap-2'>
+                    <DropdownButton 
+                                onClick={handleFood}
+                                id="category-button" 
+                                title="CATEGORY" 
+                                size="lg" 
+                                className='d-grid gap-2'>
 
 
                             <Dropdown.Item as="button" value={17} >Science & Nature</Dropdown.Item>
-                            <Dropdown.Item as="button" value={18} >Science: Computer</Dropdown.Item>
-                            <Dropdown.Item as="button" value={19} >Science: Mathematics</Dropdown.Item>
-                            <Dropdown.Item as="button" value={22} >Geography</Dropdown.Item>
-                            <Dropdown.Item as="button" value={23} >History</Dropdown.Item>
+                           
 
 
 

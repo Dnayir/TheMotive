@@ -4,29 +4,25 @@ import './motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
 import { NavBar } from '../../components';
+
+import { NavLink } from 'react-router-dom';
 import TypeWriterEffect from 'react-typewriter-effect';
-;
+
+
+
 
 
 const MotivePage = () => {
     
-    // ----> use Navigate if statement depending on onClick event
-    // ----> onClick handlers for redirection
-
-    // const[food, setFood] = useState('');
-    // const[drink, setDrink] = useState('');
-
-    // const dispatch = useDispatch();
-
+    
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     function handleFood(e) {
-        // dispatch(setFood(e.currentTarget.value));
         navigate('/food');
     }
 
     function handleDrink(e) {
-        // dispatch(setDrink(e.currentTarget.value));
         navigate('/drink');
     }
 
@@ -67,44 +63,49 @@ const MotivePage = () => {
                 <div className='category-container'>
                     
                     <div className='top-container'>
-                        <div className='image-container'>
-                            <img 
-                                src={foodGif}
-                                onclick={handleFood}
-                                width='170'
-                                height='200'
-                                alt='Food Gif'
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'flex-end',
-                                    alignSelf: 'center',
-                                    marginRight: 'auto',
-                                    marginTop: '-40px',
-                                    
-                                  }}
-                             />
-                        </div>
+                        <NavLink role='link' className='nav-item' to='/food'>
+                                <div className='image-container'>
+                                    <img 
+                                        src={foodGif}
+                                        onClick={handleFood}
+                                        width='170'
+                                        height='200'
+                                        alt='Food Gif'
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'flex-end',
+                                            alignSelf: 'center',
+                                            marginRight: 'auto',
+                                            marginTop: '-40px',
+                                            
+                                        }}
+                                    />
+                                </div>
+                            </NavLink>
                     </div>
+
                     <div className='bottom-container'>
-                        <div className='image-container'>
-                        <img 
-                                src={drinkGif}
-                                onClick={handleDrink}
-                                width='170'
-                                height='200'
-                                alt='Food Gif'
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'flex-end',
-                                    alignSelf: 'center',
-                                    marginRight: 'auto',
-                                    marginTop: '-10px',
-                                    
-                                  }}
-                             />
-                        </div>
+                        <NavLink role='link' className='nav-item' to='/drink'>
+                            <div className='image-container'>
+                                <img 
+                                        src={drinkGif}
+                                        onClick={handleDrink}
+                                        width='170'
+                                        height='200'
+                                        alt='Food Gif'
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'flex-end',
+                                            alignSelf: 'center',
+                                            marginRight: 'auto',
+                                            marginTop: '-10px',
+                                            
+                                        }}
+                                    />
+                            </div>
+                        </NavLink>
                     </div>
 
                 </div>

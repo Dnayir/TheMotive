@@ -3,14 +3,25 @@ import '../../pages/MotivePage/motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
 import { NavBar } from '../../components';
+import { fetchDrinkVenues } from '../../actions';
 import TypeWriterEffect from 'react-typewriter-effect';
 
 const DrinkPage = () => {
 
-    // ----> use Navigate if statement depending on onClick event
     // ----> NEEDS NEW DRINK ANIMATED ICONS!
 
-    // ----> onClick handlers for redirection
+    function handleBar(e) {
+        // NEED TO SPECIFY IT IS A BAR CATEGORY
+        dispatch(fetchDrinkVenues(e.currentTarget.value));
+        navigate('/venues');
+    }
+
+    function handlePub(e) {
+        // NEED TO SPECIFY IT IS A PUB CATEGORY
+        dispatch(fetchDrinkVenues(e.currentTarget.value));
+        navigate('/venues');
+    }
+   
     return (
         <div className='main-container'>
        
@@ -46,42 +57,52 @@ const DrinkPage = () => {
                 <div className='category-container'>
                     
                     <div className='top-container'>
-                        <div className='image-container'>
-                            <img 
-                                src={foodGif}
-                                width='170'
-                                height='200'
-                                alt='Food Gif'
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'flex-end',
-                                    alignSelf: 'center',
-                                    marginRight: 'auto',
-                                    marginTop: '-40px',
-                                    
-                                  }}
-                             />
-                        </div>
+                        <NavLink role='link' className='nav-item' to='/venues'>
+                            <div className='image-container'>
+                                <img 
+                                // BAR ANIMATED ICON NEEDED
+
+                                    src={foodGif}
+                                    onClick={handleBar}
+                                    width='170'
+                                    height='200'
+                                    alt='Food Gif'
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'flex-end',
+                                        alignSelf: 'center',
+                                        marginRight: 'auto',
+                                        marginTop: '-40px',
+                                        
+                                    }}
+                                />
+                            </div>
+                        </NavLink>
                     </div>
                     <div className='bottom-container'>
-                        <div className='image-container'>
-                        <img 
-                                src={drinkGif}
-                                width='170'
-                                height='200'
-                                alt='Food Gif'
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'flex-end',
-                                    alignSelf: 'center',
-                                    marginRight: 'auto',
-                                    marginTop: '-10px',
-                                    
-                                  }}
-                             />
-                        </div>
+                        <NavLink role='link' className='nav-item' to='/venues'>
+                            <div className='image-container'>
+                                <img 
+                                // PUB ANIMATED ICON NEEDED
+
+                                        src={drinkGif} 
+                                        onClick={handlePub}
+                                        width='170'
+                                        height='200'
+                                        alt='Food Gif'
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'flex-end',
+                                            alignSelf: 'center',
+                                            marginRight: 'auto',
+                                            marginTop: '-10px',
+                                            
+                                        }}
+                                 />
+                            </div>
+                        </NavLink>
                     </div>
 
                 </div>
