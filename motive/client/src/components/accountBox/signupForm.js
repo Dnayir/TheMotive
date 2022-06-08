@@ -46,7 +46,7 @@ export function SignupForm(props) {
               id="" placeholder="Confirm Password" />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <SubmitButton type="button" onClick={() => registerUser()}>Signup</SubmitButton>
+      <SubmitButton type="button" onClick={() => registerUser()}>Sign Up</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Already have an account?
