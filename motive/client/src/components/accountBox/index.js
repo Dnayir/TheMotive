@@ -13,7 +13,7 @@ const BoxContainer = styled.div`
   border-radius: 19px;
   background: rgb(0,128,55);
   background: rgb(0,128,24);
-  background: linear-gradient(0deg, rgba(0,128,24,1) 34%, rgba(75,215,17,1) 85%);
+  background: #FAE8C7;
   box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
   position: relative;
   overflow: hidden;

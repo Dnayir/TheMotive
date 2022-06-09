@@ -110,3 +110,28 @@ cursor: default;
 opacity: .24;
 }
 
+.venue-name {
+    font-family: monospace;
+    font-size: 30px;
+    color: white;
+}
+
+.venue-type {
+    color: #FAE8C7;
+    font-weight: 900;
+    font-size: 18px;
+    font-family: monospace;
+}
+
+.venue-distance {
+    font-size: 15px;
+    color: #ff5900;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.venue-address {
+    font-family: monospace;
+    font-size: 20px;
+    color: #FAE8C7; 
+}
