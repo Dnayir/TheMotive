@@ -162,7 +162,7 @@ def fetch_food_venues():
             return '400 Error: Bad Request', 400
 
 # drinl
-@app.route('/drinkmotive', methods=["POST"])
+@app.route('/drink_motive', methods=["POST"])
 def fetch_drink_venues():
     if request.method == 'POST':
         categories = ''
@@ -201,7 +201,7 @@ def fetch_drink_venues():
             return jsonData, 200
         except Exception as err:
             print(err)
-            return '400 Error: Bad Request', 400
+            return err, 400
 
 
 @app.route("/review", methods=["POST"])
