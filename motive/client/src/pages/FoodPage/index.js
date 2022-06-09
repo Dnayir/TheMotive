@@ -19,7 +19,7 @@ const FoodPage = () => {
         e.preventDefault();
         // NEED TO SPECIFY IT IS A BAR CATEGORY
         const data = new FormData(e.currentTarget)
-        alert(data.get("category")  )
+        // alert(data.get("category")  )
         dispatch(setFoodCategory(data.get("category")));
         navigate('/venues');
     }

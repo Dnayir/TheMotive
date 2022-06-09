@@ -1,11 +1,17 @@
 import React from 'react';
 import './Venue.css';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Venue = ({ venueName, venueType, venueDistance, venueAddress}) => {
 
+    const navigate = useNavigate();
+    const handleClick = (e) => {
+        navigate('/review');
+    };
+    
     function open() {
-        console.log('yes')
+        
     }
 
     return (
@@ -30,6 +36,10 @@ const Venue = ({ venueName, venueType, venueDistance, venueAddress}) => {
                     <br></br>
                     <div className='venue-row'>
                         <span className='venue-address'>{venueAddress}</span>
+                    </div>
+                    <br></br>
+                    <div className='venue-row'>
+                        <button className='enterButton' onClick={handleClick}>Review</button>
                     </div>
                     
                     
