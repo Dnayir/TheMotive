@@ -161,11 +161,7 @@ def fetch_food_venues():
         except:
             return '400 Error: Bad Request', 400
 
-<<<<<<< HEAD
-
-=======
 # drinl
->>>>>>> 51ccc3f5a71b2edde201dfeabfdd158803929f0d
 @app.route('/drinkmotive', methods=["POST"])
 def fetch_drink_venues():
     if request.method == 'POST':
