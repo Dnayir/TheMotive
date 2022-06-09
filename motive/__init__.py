@@ -159,12 +159,11 @@ def fetch_food_venues():
             }
 
             response = requests.get(url, headers=headers)
-            jsonData = json.loads(response.text)
-            print('jsonData: ', jsonData['results'][0]['name'])
-            # print('jsonData: ', jsonData)
-            return jsonData, 200
-        except:
-            return '400 Error: Bad Request', 400
+            print("res.json: ", response.json())
+            return response.json(), 200
+        except Exception as err:
+            print(err)
+            return {'error': str(err)}, 400
 
 # drinl
 
@@ -203,8 +202,6 @@ def fetch_drink_venues():
             print(url)
 
             response = requests.get(url, headers=headers)
-            jsonData = json.loads(response.text)
-            #jsonData = response.json
             print("res.json: ", response.json())
             return response.json(), 200
         except Exception as err:
