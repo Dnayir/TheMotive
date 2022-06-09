@@ -59,7 +59,7 @@ export const ReviewForm = () => {
                     <p class="subtitle">Help others decide the motive!</p>
                 </div>
             <form class="feedback-form" >
-                <h1 class="blacktext" value='usernamePulled'> Hi {usernamePulled} </h1>
+                <h1 class="blacktext" > Hi {usernamePulled} </h1>
                 {/* <h1 class="blacktext" value={username}> Hi {username} </h1> */}
                 <h2 class="blacktext" value='venueName'>You are reviewing KHARI CHANGE </h2>
                 <input class="feedback-form__email" placeholder="What did you have?" required=""  />
