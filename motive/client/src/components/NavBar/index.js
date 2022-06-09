@@ -34,11 +34,13 @@ const NavBar = () => {
   }
 
   // ---- > NEED TO ADD CORRECT COOKIES!
+
   async function handleLogout() {
     try {
       const result = await axios.post(
-        `https://the-motive-one.herokuapp.com/logout`
+        `https://the-motive-one.herokuapp.com/drink_motive`
       );
+      console.log(result);
     } catch (err) {
       console.error(err);
     }
@@ -48,7 +50,7 @@ const NavBar = () => {
     <nav>
       <div className="nav-container">
         <div className="left-corner">
-          <NavLink role="link" className="nav-item" to={handleClick}>
+          <NavLink role="link" className="nav-item" to="" onClick={handleClick}>
             <div className="image-container">
               <img
                 src={logo}
@@ -108,7 +110,12 @@ const NavBar = () => {
             </div>
           </NavLink>
 
-          <NavLink role="link" className="nav-item" to={handleLogout}>
+          <NavLink
+            role="link"
+            className="nav-item"
+            to=""
+            onClick={handleLogout}
+          >
             <div className="icon-container">
               <img
                 src={logout}
