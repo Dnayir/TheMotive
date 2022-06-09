@@ -25,7 +25,7 @@ export const ReviewForm = () => {
             `https://the-motive-one.herokuapp.com/username`
             );
             console.log(result)
-            setUsernamePulled(result);
+            setUsernamePulled(result.username);
             
           } catch (err) {
             console.error(err);
