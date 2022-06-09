@@ -22,17 +22,8 @@ const VenuesPage = () => {
         };
         // for drink
         if (typeChosen === 'drink') {
-          // const result = await axios.post(
-          //   `https://the-motive-one.herokuapp.com/drink_motive`,
-          //   {
-          //     latitude: lat,
-          //     longitude: long,
-          //     category: drinkCategory,
-          //   },
-          //   { headers }
-          // );
           const result = await axios.post(
-            `http://localhost:7777/drink_motive`,
+            `https://the-motive-one.herokuapp.com/drink_motive`,
             {
               latitude: lat,
               longitude: long,
@@ -40,6 +31,15 @@ const VenuesPage = () => {
             },
             { headers }
           );
+          // const result = await axios.post(
+          //   `http://localhost:7777/drink_motive`,
+          //   {
+          //     latitude: lat,
+          //     longitude: long,
+          //     category: drinkCategory,
+          //   },
+          //   { headers }
+          // );
 
           setVenueData(result.data.results);
           console.log(result.data.results);

@@ -12,14 +12,16 @@ export const FormContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
- 
+  border-radius: 500px;
 `;
 
 export const MutedLink = styled.a`
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 800;
   color: #431c16;;
-  font-weight: 500;
+  
   text-decoration: none;
+  
 `;
 
 export const BoldLink = styled.a`

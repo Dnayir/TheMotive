@@ -6,8 +6,8 @@ import { AccountContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 
 const BoxContainer = styled.div`
-  width: 280px;
-  min-height: 550px;
+  width: 300px;
+  min-height: 700px;
   display: flex;
   flex-direction: column;
   border-radius: 19px;
@@ -17,6 +17,7 @@ const BoxContainer = styled.div`
   box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
   position: relative;
   overflow: hidden;
+  margin-top: 25px;
 `;
 
 const TopContainer = styled.div`
@@ -27,6 +28,7 @@ const TopContainer = styled.div`
   justify-content: flex-end;
   padding: 0 1.8em;
   padding-bottom: 5em;
+  margin-top: 90px;
 `;
 
 const BackDrop = styled(motion.div)`
@@ -50,7 +52,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderText = styled.h2`
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 600;
   font-family: monospace;
   line-height: 1.24;
@@ -63,6 +65,7 @@ const SmallText = styled.h5`
   color: #431c16;
   font-weight: 900;
   font-size: 16px;
+  font-style: bold;
   font-family: monospace;
   z-index: 10;
   margin: 0;
@@ -74,7 +77,7 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 1.8em;
-  margin-top: 25px;
+  margin-top: 10px;
 `;
 
 const backdropVariants = {
@@ -139,14 +142,14 @@ export function AccountBox(props) {
             <HeaderContainer>
               <HeaderText>Welcome</HeaderText>
               <HeaderText>Back</HeaderText>
-              <SmallText>Sign in and continue the motive!</SmallText>
+              <SmallText>Sign in and <br></br> continue the motive!</SmallText>
             </HeaderContainer>
           )}
           {active === "signup" && (
             <HeaderContainer>
               <HeaderText>Create</HeaderText>
               <HeaderText>Account</HeaderText>
-              <SmallText>Sign up and never let the motive end!</SmallText>
+              <SmallText>Sign up and <br></br> never let the motive end!</SmallText>
             </HeaderContainer>
           )}
         </TopContainer>
