@@ -10,11 +10,13 @@ import review from  '../../images/review.gif';
 import logout from  '../../images/logout.gif';
 
 import { loadLong, loadLat } from '../../actions';
+import { useNavigate } from 'react-router-dom';
 
 
 const NavBar = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [refresh, setRefresh] = useState(0);
 
     useEffect(() => {
@@ -27,10 +29,12 @@ const NavBar = () => {
         });
     
       }, [refresh]);
-    
-    function handleUpdateLocation() {
-        setRefresh(prev => prev + 1)
-    }
+
+    // ---- > NEED TO ADD CORRECT COOKIES!
+    // function handleLogout() {
+    //     document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
+    //     window.location.reload();
+    // }
 
     return (
 
@@ -40,23 +44,25 @@ const NavBar = () => {
 
                     <div className='left-corner'>
 
-                        <div className='image-container'>
-                            <img src={logo} 
-                                width='180' 
-                                height='160' 
-                                alt='the.MOTIVE Logo'
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'flex-start',
-                                    alignSelf: 'flex-start',
-                                    
-                                    marginLeft: '110px',
-                                    marginTop: '55px',
-                                    margin: '0',
-                                    
-                                }} />
-                        </div>
+                        <NavLink role='link' className='nav-item' onClick={handleClick}>
+                            <div className='image-container'>
+                                <img src={logo} 
+                                    width='180' 
+                                    height='160' 
+                                    alt='the.MOTIVE Logo'
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'flex-start',
+                                        alignSelf: 'flex-start',
+                                        
+                                        marginLeft: '110px',
+                                        marginTop: '55px',
+                                        margin: '0',
+                                        
+                                    }} />
+                            </div>
+                        </NavLink>
 
                     </div>
                     
@@ -99,7 +105,7 @@ const NavBar = () => {
                             </div>
                         </NavLink>
 
-                        <NavLink role='link' className='nav-item' to='/friends'>
+                        <NavLink role='link' className='nav-item' onClick={handleLogout}>
                             <div className='icon-container'>
                                 <img src={logout} 
                                      width='60' 
