@@ -201,7 +201,7 @@ def fetch_drink_venues():
             return jsonData, 200
         except Exception as err:
             print(err)
-            return err, 400
+            return {'error': err}, 400
 
 
 @app.route("/review", methods=["POST"])

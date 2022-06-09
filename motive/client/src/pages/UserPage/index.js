@@ -26,18 +26,16 @@ const UserPage = () => {
         alert('Invalid Credentials');
       }
     }
-  }
-//  
+  };
+  //
 
-//       window.location.href = '/User';
-//     } catch (error) {
-//       if (error.response.status === 401) {
-//         alert('Invalid Credentials');
-//       }
-//     }
-//   };
-
-
+  //       window.location.href = '/User';
+  //     } catch (error) {
+  //       if (error.response.status === 401) {
+  //         alert('Invalid Credentials');
+  //       }
+  //     }
+  //   };
 
   const logoutUser = async () => {
     const resp = await httpClient.post(
@@ -46,39 +44,21 @@ const UserPage = () => {
     window.location.href = '/';
   };
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const resp = await httpClient.get(
-          'https://the-motive-one.herokuapp.com/@me'
-        );
-        setUser(resp.data);
-      } catch (error) {
-        console.log('Not Authenticated');
-      }
-    })();
-  }, []);
-
   const AppContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  `;
 
   return (
-    
-
-  <React.Fragment>
-
-    <AppContainer>
-      <AccountBox />
-    </AppContainer>
-    
-  </React.Fragment>
-
+    <React.Fragment>
+      <AppContainer>
+        <AccountBox />
+      </AppContainer>
+    </React.Fragment>
   );
 
   //   <div>
@@ -122,8 +102,7 @@ const UserPage = () => {
 
 export default UserPage;
 
-
-// ---------------------------REGISTER PAGE--------------------------------- // 
+// ---------------------------REGISTER PAGE--------------------------------- //
 // import React, { useState, useEffect } from 'react';
 // import httpClient from '../httpClient';
 
@@ -182,7 +161,6 @@ export default UserPage;
 
 // export default RegisterPage;
 
-
 // -----------------------------LOGIN PAGE------------------------------//
 // import React, { useState } from 'react';
 // import httpClient from '../httpClient';
@@ -228,10 +206,10 @@ export default UserPage;
 //         <div>
 //           <label>Password</label>
 //           <input
-            // type="password"
-            // value={password}
-            // onChange={(e) => setPassword(e.target.value)}
-            // id=""
+// type="password"
+// value={password}
+// onChange={(e) => setPassword(e.target.value)}
+// id=""
 //           ></input>
 //         </div>
 //         <button type="button" onClick={() => logInUser()}>
