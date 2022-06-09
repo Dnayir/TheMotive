@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './venues.css';
-import { NavBar, Card } from '../../components';
+import { NavBar, Venue } from '../../components';
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 
@@ -57,7 +57,7 @@ const VenuesPage = () => {
             const suffix = v.categories[0].icon.suffix;
             const venueIcon = prefix + suffix;
           
-            return <Card venueName={v.name} venueType={v.categories[0].name} venueDistance={v.distance/1000} venueAddress={v.location.formatted_address} venueIcon={venueIcon}/>
+            return <Venue venueName={v.name} venueType={v.categories[0].name} venueDistance={v.distance/1000} venueAddress={v.location.formatted_address} venueIcon={venueIcon}/>
         })
     }
 
