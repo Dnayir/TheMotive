@@ -44,7 +44,7 @@ const NavBar = () => {
 
                     <div className='left-corner'>
 
-                        <NavLink role='link' className='nav-item' onClick={handleClick}>
+                        <NavLink role='link' className='nav-item'>
                             <div className='image-container'>
                                 <img src={logo} 
                                     width='180' 
@@ -105,7 +105,7 @@ const NavBar = () => {
                             </div>
                         </NavLink>
 
-                        <NavLink role='link' className='nav-item' onClick={handleLogout}>
+                        <NavLink role='link' className='nav-item'ß>
                             <div className='icon-container'>
                                 <img src={logout} 
                                      width='60' 
