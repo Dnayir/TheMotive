@@ -193,7 +193,7 @@ def fetch_drink_venues():
                 "Authorization": environ.get("FOURSQUARE_API_KEY")
             }
 
-            print(url)
+            print(url, headers, True)
         
             response = requests.get(url, headers=headers)
             jsonData = json.loads(response.text)
@@ -201,7 +201,7 @@ def fetch_drink_venues():
             return jsonData, 200
         except Exception as err:
             print(err)
-            return {'error': err}, 400
+            return {'error': str(err)}, 400
 
 
 @app.route("/review", methods=["POST"])
