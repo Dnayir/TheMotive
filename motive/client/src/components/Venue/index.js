@@ -7,7 +7,7 @@ const Venue = ({ venueName, venueType, venueDistance, venueAddress}) => {
 
     const navigate = useNavigate();
     const handleClick = (e) => {
-        navigate('/review');
+        navigate("/review/" + venueName);
     };
     
     function open() {

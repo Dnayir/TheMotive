@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './review.css';
 import httpClient from '../../pages/httpClient';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 
 export const ReviewForm = () => {
+    const { name } = useParams();
     const [review, setReview] = useState('');
     const username = useSelector(((state) => state.username));
-    const [venueName, setVenueName] = useState('');
     const [venueType, setVenueType] = useState('');
     const [review_description, setReview_description] = useState('');
-    const [usernamePulled, setUsernamePulled] = useState('')
+    const [usernamePulled, setUsernamePulled] = useState('guest')
 
     const navigate = useNavigate()
 
@@ -38,13 +39,13 @@ export const ReviewForm = () => {
       }
     
     const postReview = async () => {
-        console.log(username, venueName, venueType, review_description);
+        console.log(username, name, venueType, review_description);
 
         const resp = await httpClient.post(
             'https://the-motive-one.herokuapp.com/review',
             {
               username: usernamePulled ,
-              restaurant_name: venueName,
+              restaurant_name: name,
               type_of_food: venueType,
               review_description: review_description
             }
@@ -53,19 +54,18 @@ export const ReviewForm = () => {
     return (
 
     <div>
-        <section class="content">
-                <div class="feedback-description">
-                    <h1 class="title">Leave a review!</h1>
-                    <p class="subtitle">Help others decide the motive!</p>
+        <section className="content">
+                <div className="feedback-description">
+                    <h1 className="title">Leave a review!</h1>
+                    <p className="subtitle">Help others decide the motive!</p>
                 </div>
-            <form class="feedback-form" >
-                <h1 class="blacktext" > Hi {usernamePulled} </h1>
-                {/* <h1 class="blacktext" value={username}> Hi {username} </h1> */}
-                <h2 class="blacktext" value='venueName'>You are reviewing KHARI CHANGE </h2>
-                <input class="feedback-form__email" placeholder="What did you have?" required=""  />
-                    <textarea class="feedback-form__message" placeholder="Leave your review" cols="30" name="review_description" rows="5">
+            <form className="feedback-form" >
+                <h1 className="blacktext" > Hi {usernamePulled} </h1>
+                <h2 className="blacktext">You are reviewing {name} </h2>
+                <input className="feedback-form__email" placeholder="What did you have?" required=""  />
+                    <textarea className="feedback-form__message" placeholder="Leave your review" cols="30" name="review_description" rows="5">
                     </textarea>
-                    <button class="feedback-form__submit" onClick={handleSubmit}>Submit</button>
+                    <button className="feedback-form__submit" onClick={handleSubmit}>Submit</button>
             </form>
         </section>
     </div>
