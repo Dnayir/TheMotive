@@ -18,6 +18,7 @@ const DrinkPage = () => {
         const result = await axios.get(
           `https://the-motive-one.herokuapp.com/check`
         );
+        console.log(result);
         if (result === false) {
           return navigate('/user');
         }
