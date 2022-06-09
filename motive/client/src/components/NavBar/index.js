@@ -30,7 +30,11 @@ const NavBar = () => {
     
       }, [refresh]);
 
-    // ---- > NEED TO ADD CORRECT COOKIES!
+    function handleClick() {
+        return navigate(-1)
+    }
+
+    // // ---- > NEED TO ADD CORRECT COOKIES!
     // function handleLogout() {
     //     document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
     //     window.location.reload();
@@ -44,7 +48,7 @@ const NavBar = () => {
 
                     <div className='left-corner'>
 
-                        <NavLink role='link' className='nav-item' onClick={handleClick}>
+                        <NavLink role='link' className='nav-item' to={handleClick}>
                             <div className='image-container'>
                                 <img src={logo} 
                                     width='180' 
@@ -105,7 +109,7 @@ const NavBar = () => {
                             </div>
                         </NavLink>
 
-                        <NavLink role='link' className='nav-item' onClick={handleLogout}>
+                        <NavLink role='link' className='nav-item' to='/'>
                             <div className='icon-container'>
                                 <img src={logout} 
                                      width='60' 
