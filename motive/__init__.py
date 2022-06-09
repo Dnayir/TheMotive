@@ -199,7 +199,8 @@ def fetch_drink_venues():
             jsonData = json.loads(response.text)
             # print('jsonData drink: ', jsonData)
             return jsonData, 200
-        except:
+        except Exception as err:
+            print(err)
             return '400 Error: Bad Request', 400
 
 
