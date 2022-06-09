@@ -38,7 +38,7 @@ const NavBar = () => {
   async function handleLogout() {
     try {
       const result = await axios.post(
-        `https://the-motive-one.herokuapp.com/drink_motive`
+        `https://the-motive-one.herokuapp.com/logout`
       );
       console.log(result);
     } catch (err) {
