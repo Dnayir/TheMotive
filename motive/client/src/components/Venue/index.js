@@ -32,6 +32,7 @@ const Venue = ({ venueName, venueType, venueDistance, venueAddress}) => {
                         <span className='venue-address'>{venueAddress}</span>
                     </div>
                     
+                    
                 </div>
             </div>
         </motion.div>
