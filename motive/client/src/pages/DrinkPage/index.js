@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 import '../../pages/MotivePage/motive.css';
 import barGif from '../../images/bar.gif';
@@ -12,8 +13,20 @@ import TypeWriterEffect from 'react-typewriter-effect';
 
 const DrinkPage = () => {
   useEffect(() => {
-    console.log(document.cookie);
-  });
+    async function handleUserId() {
+      try {
+        const result = await axios.get(
+          `https://the-motive-one.herokuapp.com/check`
+        );
+        if (result === false) {
+          return navigate('/user');
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    handleUserId();
+  }, []);
 
   // ----> NEEDS NEW DRINK ANIMATED ICONS!
 
