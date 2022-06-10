@@ -23,8 +23,8 @@ const MotivePage = () => {
             `https://the-motive-one.herokuapp.com/username`
             );
             console.log(result)
-            setUsernamePulled(result.data.username);
-            
+            const x = result.data.username;
+            setUsernamePulled('WHATS THE MOTIVE' + x + '?')
           } catch (err) {
             console.error(err);
           }
@@ -66,7 +66,7 @@ const MotivePage = () => {
                                 marginTop: '15px',
                             }}
                             cursorColor='#da3422'
-                            text="WHAT'S THE MOTIVE {usernamePulled}?"
+                            text={usernamePulled}
                             typeSpeed={70}
                             startDelay={0.1}
                             loop={true}

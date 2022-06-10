@@ -22,8 +22,8 @@ const DrinkPage = () => {
             `https://the-motive-one.herokuapp.com/username`
             );
             console.log(result)
-            setUsernamePulled(result.data.username);
-            
+            const x = result.data.username;
+            setUsernamePulled('WHATS THE VIBE' + x + '?')
           } catch (err) {
             console.error(err);
           }
@@ -88,7 +88,7 @@ const DrinkPage = () => {
               marginTop: '15px',
             }}
             cursorColor="#da3422"
-            text="WHAT'S THE VIBE {usernamePulled}?"
+            text={usernamePulled}
             typeSpeed={70}
             startDelay={0.1}
             loop={true}
