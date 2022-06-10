@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
+import axios from 'axios';
 import './motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
