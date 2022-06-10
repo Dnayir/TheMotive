@@ -69,7 +69,7 @@ const MotivePage = () => {
                                 marginTop: '15px',
                             }}
                             cursorColor='#da3422'
-                            text={usernamePulled}
+                            text="WHAT'S THE MOTIVE?"
                             typeSpeed={70}
                             startDelay={0.1}
                             loop={true}
