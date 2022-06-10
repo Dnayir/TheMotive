@@ -17,7 +17,7 @@ function App() {
           <Route path="/drink" element={<Pages.DrinkPage />} />
           <Route path="/venues" element={<Pages.VenuesPage />} />
           {/* <Route path="/friends" element={<Pages.FriendsPage />} /> */}
-          <Route path="/review" element={<Pages.ReviewPage />} />
+          <Route path="/review/:name" element={<Pages.ReviewPage />} />
 
           <Route path="*" element={<Pages.NotFoundPage />} />
         </Routes>

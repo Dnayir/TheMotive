@@ -65,6 +65,21 @@ def get_current_user():
     return True
 
 
+@app.route("/username")
+def get_current_username():
+    try:
+        user_id = session.get("user_id")
+        if not user_id:
+            return jsonify({"error": "Unauthorised"}), 401
+        user = User.query.filter_by(id=user_id).first()
+        return jsonify({
+            "username": user.username
+        }) 
+    except Exception as err:
+            print(err)
+            return {'error': str(err)}, 400
+
+
 @app.route("/register", methods=["POST"])
 def register_user():
     try:

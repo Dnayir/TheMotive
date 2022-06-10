@@ -31,6 +31,15 @@ const VenuesPage = () => {
             },
             { headers }
           );
+          // const result = await axios.post(
+          //   `http://localhost:7777/drink_motive`,
+          //   {
+          //     latitude: lat,
+          //     longitude: long,
+          //     category: drinkCategory,
+          //   },
+          //   { headers }
+          // );
 
           setVenueData(result.data.results);
           console.log(result.data.results);

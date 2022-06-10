@@ -1,24 +1,27 @@
 
 .main-container {
-  /* box-sizing: border-box; */
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-self: center;
-  /* padding: 5%;
-  border: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%); */
   padding: 5px;
-  /* border-style: groove;
-  border-width: 1em;
-  border-color: chartreuse;
-  border-radius: 5%; */
   margin: -70px;
   margin-top: -50px;
 
 
 }
 
-
+.content-container {
+  width: 300px;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 19px;
+  background: black;
+  position: relative;
+  overflow: hidden;
+  margin-top: 25px;
+}
 
 .content-container:hover {
    
@@ -56,14 +59,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 5%;
-  
 
-  /* padding: 25%;
-  width: 100%;
-  margin: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 img {
@@ -88,7 +84,7 @@ img {
 }
 
 
-.enterButton {
+.landingButton {
   align-items: center;
   appearance: none;
   background-clip: padding-box;
@@ -106,7 +102,7 @@ img {
   font-weight: 300;
   justify-content: center;
   line-height: 24px;
-  margin-top: 5px;
+  margin-top: -125px;
   min-height: 64px;
   outline: none;
   overflow: visible;
@@ -126,17 +122,17 @@ img {
 }
 
 @media (min-width: 768px) {
-  .enterButton {
+  .landingButton {
     padding: 19px 32px;
   }
 }
 
-.enterButton:before,
-.enterButton:after {
+.landingButton:before,
+.landingButton:after {
   border-radius: 80px;
 }
 
-.enterButton:before {
+.landingButton:before {
   background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
   content: "";
   display: block;
@@ -149,7 +145,7 @@ img {
   z-index: -2;
 }
 
-.enterButton:after {
+.landingButton:after {
   background-color: initial;
   background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
   bottom: 4px;
@@ -164,11 +160,11 @@ img {
   z-index: -1;
 }
 
-.enterButton:hover:not(:disabled):before {
+.landingButton:hover:not(:disabled):before {
   background: linear-gradient(92.83deg, rgb(255, 116, 38) 0%, rgb(249, 58, 19) 100%);
 }
 
-.enterButton:hover:not(:disabled):after {
+.landingButton:hover:not(:disabled):after {
   bottom: 0;
   left: 0;
   right: 0;
@@ -177,15 +173,15 @@ img {
   opacity: 0;
 }
 
-.enterButton:active:not(:disabled) {
+.landingButton:active:not(:disabled) {
   color: #ccc;
 }
 
-.enterButton:active:not(:disabled):before {
+.landingButton:active:not(:disabled):before {
   background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
 }
 
-.enterButton:active:not(:disabled):after {
+.landingButton:active:not(:disabled):after {
   background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
   bottom: 4px;
   left: 4px;
@@ -193,7 +189,7 @@ img {
   top: 4px;
 }
 
-.enterButton:disabled {
+.landingButton:disabled {
   cursor: default;
   opacity: .24;
 }

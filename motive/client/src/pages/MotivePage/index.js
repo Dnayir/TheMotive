@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
+import axios from 'axios';
 import './motive.css';
 import foodGif from '../../images/food.gif';
 import drinkGif from '../../images/drink.gif';
@@ -12,6 +13,27 @@ const MotivePage = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [usernamePulled, setUsernamePulled] = useState('')
+
+    useEffect(() => {
+        async function searchApi() {
+          try {
+            const result = await axios.get(
+            `https://the-motive-one.herokuapp.com/username`
+            );
+            console.log(result)
+            const x = result.data.username;
+            let y = 'WHATS THE MOTIVE' + x + '?'
+            console.log(y)
+            console.log(typeof(y))
+            setUsernamePulled('WHATS THE MOTIVE' + x + '?')
+          } catch (err) {
+            console.error(err);
+          }
+        }
+        searchApi();
+      }, []);
 
     function handleFood(e) {
         dispatch(loadType('food'));
@@ -29,85 +51,85 @@ const MotivePage = () => {
         <div className='main-container'>
                 
                 <NavBar />
-                <div className='typewriter'>
-                    <TypeWriterEffect 
-                        textStyle={{
-                            color: '#4DA537',
-                            textShadow: '2px 2px 2px  #FF5900',
-                            fontFamily: 'monospace',
-                            fontWeight: 'bold',
-                            fontSize: '3.7em',
-                            textAlign: 'center',
-                            lineHeight: '1.3',
+                <div className='content-container'>
 
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            marginTop: '100px',
-    
-                        }}
-                        cursorColor='#da3422'
-                        text='WHAT\S THE MOTIVE?'
-                        typeSpeed={70}
-                        startDelay={0.1}
-                        loop={true}
-                    
-                    />
-                </div>
+                    <div className='typewriter'>
+                        <TypeWriterEffect 
+                            textStyle={{
+                                color: '#4DA537',
+                                textShadow: '2px 2px 2px  #FF5900',
+                                fontFamily: 'monospace',
+                                fontWeight: 'bold',
+                                fontSize: '2.4em',
+                                textAlign: 'center',
+                                
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginTop: '15px',
+                            }}
+                            cursorColor='#da3422'
+                            text="WHAT'S THE MOTIVE?"
+                            typeSpeed={70}
+                            startDelay={0.1}
+                            loop={true}
+                        
+                        />
+                    </div>
 
-                <br></br>
+                    <br></br>
 
-                <div className='category-container'>
-                    
-                    <div className='top-container'>
-                        <NavLink role='link' className='nav-item' to='/food'>
+                    <div className='category-container'>
+                        
+                        <div className='top-container'>
+                            <NavLink role='link' className='nav-item' to='/food'>
+                                    <div className='image-container'>
+                                        <img 
+                                            src={foodGif}
+                                            onClick={handleFood}
+                                            width='170'
+                                            height='290'
+                                            alt='Food Gif'
+                                            style={{
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'flex-end',
+                                                alignSelf: 'center',
+                                                marginRight: 'auto',
+                                                marginTop: '-120px',
+                                                
+                                            }}
+                                        />
+                                    </div>
+                                </NavLink>
+                        </div>
+
+                        <div className='bottom-container'>
+                            <NavLink role='link' className='nav-item' to='/drink'>
                                 <div className='image-container'>
                                     <img 
-                                        src={foodGif}
-                                        onClick={handleFood}
-                                        width='170'
-                                        height='200'
-                                        alt='Food Gif'
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'flex-end',
-                                            alignSelf: 'center',
-                                            marginRight: 'auto',
-                                            marginTop: '-40px',
-                                            
-                                        }}
-                                    />
+                                            src={drinkGif}
+                                            onClick={handleDrink}
+                                            width='170'
+                                            height='200'
+                                            alt='Food Gif'
+                                            style={{
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'flex-end',
+                                                alignSelf: 'center',
+                                                marginRight: 'auto',
+                                                marginTop: '-120px',
+                                                
+                                            }}
+                                        />
                                 </div>
                             </NavLink>
-                    </div>
+                        </div>
 
-                    <div className='bottom-container'>
-                        <NavLink role='link' className='nav-item' to='/drink'>
-                            <div className='image-container'>
-                                <img 
-                                        src={drinkGif}
-                                        onClick={handleDrink}
-                                        width='170'
-                                        height='200'
-                                        alt='Food Gif'
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'flex-end',
-                                            alignSelf: 'center',
-                                            marginRight: 'auto',
-                                            marginTop: '-10px',
-                                            
-                                        }}
-                                    />
-                            </div>
-                        </NavLink>
                     </div>
-
-                </div>
             
-            
+            </div>
         </div>
     )
 
