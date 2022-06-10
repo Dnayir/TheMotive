@@ -39,7 +39,7 @@ const Venue = ({ venueName, venueType, venueDistance, venueAddress}) => {
                     </div>
                     <br></br>
                     <div className='venue-row'>
-                        <button className='enterButton' onClick={handleClick}>Review</button>
+                        <button className='venueButton' onClick={handleClick}>REVIEW</button>
                     </div>
                     
                     

@@ -7,6 +7,17 @@
     padding: 5%;
 }
 
+.content-container {
+    width: 300px;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 19px;
+    background: black;
+    position: relative;
+    overflow: hidden;
+    margin-top: 25px;
+}
 
 .typewriter {
     display: flex;

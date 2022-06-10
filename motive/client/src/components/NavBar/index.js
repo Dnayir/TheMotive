@@ -64,7 +64,7 @@ const NavBar = () => {
                   alignItems: 'flex-start',
                   alignSelf: 'flex-start',
 
-                  marginLeft: '110px',
+                  marginLeft: '25px',
                   marginTop: '55px',
                   margin: '0',
                 }}
@@ -78,15 +78,15 @@ const NavBar = () => {
             <div className="icon-container">
               <img
                 src={review}
-                width="60"
-                height="100"
+                width="70"
+                height="130"
                 alt="Location"
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
                   alignSelf: 'center',
-                  marginTop: '-170px',
+                  marginTop: '-10px',
                   margin: '0',
                 }}
               />
@@ -97,14 +97,15 @@ const NavBar = () => {
             <div className="icon-container">
               <img
                 src={friends}
-                width="60"
-                height="100"
+                width="70"
+                height="130"
                 alt="Location"
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
                   alignSelf: 'center',
+                  marginTop: '-120px',
                   margin: '0',
                 }}
               />
@@ -120,16 +121,16 @@ const NavBar = () => {
             <div className="icon-container">
               <img
                 src={logout}
-                width="60"
-                height="100"
+                width="80"
+                height="120"
                 alt="Location"
                 style={{
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'flex-start',
                   alignSelf: 'center',
-
-                  marginTop: '-90px',
+                  marginRight: '-55px',
+                  marginTop: '-130px',
                   margin: '0',
                 }}
               />

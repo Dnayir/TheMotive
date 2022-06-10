@@ -62,7 +62,8 @@ const LandingPage = () => {
             textStyle={{
               fontFamily: 'monospace',
               fontWeight: 'bold',
-              fontSize: '2.1em',
+              fontSize: '1.4em',
+              textAlign: 'center',
               color: '#4DA537',
               textShadow: '2px 2px 2px  #FF5900',
               display: 'flex',
@@ -89,7 +90,7 @@ const LandingPage = () => {
         {/* --- NAVIGATES TO USER PAGE ---- */}
         <div className="button-container">
           <button type="button" 
-                  className="enterButton" 
+                  className="landingButton" 
                   onClick={handleEntry} 
                 >
             <span className="text">ENTER</span>

@@ -49,11 +49,12 @@ const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 80px;
 `;
 
 const HeaderText = styled.h2`
   font-size: 35px;
-  font-weight: 600;
+  font-weight: 800;
   font-family: monospace;
   line-height: 1.24;
   color: white;
@@ -64,7 +65,7 @@ const HeaderText = styled.h2`
 const SmallText = styled.h5`
   color: #431c16;
   font-weight: 900;
-  font-size: 16px;
+  font-size: 19px;
   font-style: bold;
   font-family: monospace;
   z-index: 10;
@@ -76,8 +77,8 @@ const InnerContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0 1.8em;
-  margin-top: 10px;
+  padding: 0 1.3em;
+  margin-top: 15px;
 `;
 
 const backdropVariants = {

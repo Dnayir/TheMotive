@@ -49,82 +49,84 @@ const DrinkPage = () => {
 
   return (
     <div className="main-container">
+
       <NavBar />
-      <div className="typewriter">
-        <TypeWriterEffect
-          textStyle={{
-            color: '#4DA537',
-            textShadow: '2px 2px 2px  #FF5900',
-            fontFamily: 'monospace',
-            fontWeight: 'bold',
-            fontSize: '3.7em',
-            textAlign: 'center',
-            lineHeight: '1.3',
+      <div className='content-container'>
 
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: '100px',
-          }}
-          cursorColor="#da3422"
-          text="WHAT\S THE VIBE?"
-          typeSpeed={70}
-          startDelay={0.1}
-          loop={true}
-        />
-      </div>
+        <div className="typewriter">
+          <TypeWriterEffect
+            textStyle={{
+              color: '#4DA537',
+              textShadow: '2px 2px 2px  #FF5900',
+              fontFamily: 'monospace',
+              fontWeight: 'bold',
+              fontSize: '2.4em',
+              textAlign: 'center',
+              
 
-      <br></br>
-
-      <div className="category-container">
-        <div className="top-container">
-          <NavLink role="link" className="nav-item" to="/venues">
-            <div className="image-container">
-              <img
-                // BAR ANIMATED ICON NEEDED
-
-                src={barGif}
-                onClick={handleBar}
-                value="bar"
-                width="170"
-                height="200"
-                alt="Food Gif"
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'flex-end',
-                  alignSelf: 'center',
-                  marginRight: 'auto',
-                  marginTop: '-40px',
-                }}
-              />
-            </div>
-          </NavLink>
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: '15px',
+            }}
+            cursorColor="#da3422"
+            text="WHAT'S THE VIBE?"
+            typeSpeed={70}
+            startDelay={0.1}
+            loop={true}
+          />
         </div>
-        <div className="bottom-container">
-          <NavLink role="link" className="nav-item" to="/venues">
-            <div className="image-container">
-              <img
-                // PUB ANIMATED ICON NEEDED
 
-                src={pubGif}
-                onClick={handlePub}
-                value="Pub"
-                width="170"
-                height="200"
-                alt="Food Gif"
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'flex-end',
-                  alignSelf: 'center',
-                  marginRight: 'auto',
-                  marginTop: '-10px',
-                }}
-              />
-            </div>
-          </NavLink>
+        <br></br>
+
+        <div className="category-container">
+
+          <div className="top-container">
+            <NavLink role="link" className="nav-item" to="/venues">
+              <div className="image-container">
+                <img
+                    src={barGif}
+                    onClick={handleBar}
+                    value="bar"
+                    width="170"
+                    height="290"
+                    alt="Bar Gif"
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'flex-end',
+                      alignSelf: 'center',
+                      marginRight: 'auto',
+                      marginTop: '-120px',
+                  }}
+                />
+              </div>
+            </NavLink>
+          </div>
+          <div className="bottom-container">
+            <NavLink role="link" className="nav-item" to="/venues">
+              <div className="image-container">
+                <img
+                    src={pubGif}
+                    onClick={handlePub}
+                    value="Pub"
+                    width="170"
+                    height="200"
+                    alt="Pub Gif"
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'flex-end',
+                      alignSelf: 'center',
+                      marginRight: 'auto',
+                      marginTop: '-120px',
+                  }}
+                />
+              </div>
+            </NavLink>
+          </div>
         </div>
+
       </div>
     </div>
   );

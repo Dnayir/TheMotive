@@ -5,6 +5,7 @@ import httpClient from '../../pages/httpClient';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import TypeWriterEffect from 'react-typewriter-effect';
 
 
 
@@ -53,21 +54,48 @@ export const ReviewForm = () => {
           }
     return (
 
-    <div>
-        <section className="content">
-                <div className="feedback-description">
-                    <h1 className="title">Leave a review!</h1>
-                    <p className="subtitle">Help others decide the motive!</p>
+    <div className='main-container'>
+
+        <div className="review-content-container">
+
+              
+              <div className="typewriter">
+                <TypeWriterEffect 
+                            textStyle={{
+                                color: '#4DA537',
+                                textShadow: '2px 2px 2px  #FF5900',
+                                fontFamily: 'monospace',
+                                fontWeight: 'bold',
+                                fontSize: '2.4em',
+                                textAlign: 'center',
+                                
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginTop: '15px',
+                            }}
+                            cursorColor='#da3422'
+                            text="Help others decide the motive!"
+                            typeSpeed={70}
+                            startDelay={0.1}
+                            loop={true}
+                        
+                        />
                 </div>
-            <form className="feedback-form" >
-                <h1 className="blacktext" > Hi {usernamePulled} </h1>
-                <h2 className="blacktext">You are reviewing {name} </h2>
-                <input className="feedback-form__email" placeholder="What did you have?" required=""  />
-                    <textarea className="feedback-form__message" placeholder="Leave your review" cols="30" name="review_description" rows="5">
-                    </textarea>
-                    <button className="feedback-form__submit" onClick={handleSubmit}>Submit</button>
-            </form>
-        </section>
+               
+                <br></br>
+
+                <div className='review-form-container'>
+
+                  <form className="review-form" >
+                      <h1 className="header-text" > Hi {usernamePulled}! </h1>
+                      <h2 className="lower-text">You are reviewing {name} </h2>
+                      <input className="review-input" placeholder="Enter review here" required="" cols="30" />
+                      <button className="reviewButton" onClick={handleSubmit}>Submit</button>
+                  </form>
+
+                </div>
+        </div>
     </div>
     )
 }
