@@ -24,6 +24,9 @@ const MotivePage = () => {
             );
             console.log(result)
             const x = result.data.username;
+            let y = 'WHATS THE MOTIVE' + x + '?'
+            console.log(y)
+            console.log(typeof(y))
             setUsernamePulled('WHATS THE MOTIVE' + x + '?')
           } catch (err) {
             console.error(err);
