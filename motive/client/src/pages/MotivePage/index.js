@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import './motive.css';
 import foodGif from '../../images/food.gif';
@@ -12,6 +12,24 @@ const MotivePage = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [usernamePulled, setUsernamePulled] = useState('guest')
+
+    useEffect(() => {
+        async function searchApi() {
+          try {
+            const result = await axios.get(
+            `https://the-motive-one.herokuapp.com/username`
+            );
+            console.log(result)
+            setUsernamePulled(result.data.username);
+            
+          } catch (err) {
+            console.error(err);
+          }
+        }
+        searchApi();
+      }, []);
 
     function handleFood(e) {
         dispatch(loadType('food'));
@@ -47,7 +65,7 @@ const MotivePage = () => {
                                 marginTop: '15px',
                             }}
                             cursorColor='#da3422'
-                            text="WHAT'S THE MOTIVE?"
+                            text="WHAT'S THE MOTIVE {usernamePulled}?"
                             typeSpeed={70}
                             startDelay={0.1}
                             loop={true}

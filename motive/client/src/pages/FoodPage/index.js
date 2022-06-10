@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -14,6 +14,24 @@ const FoodPage = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [usernamePulled, setUsernamePulled] = useState('guest')
+
+    useEffect(() => {
+        async function searchApi() {
+          try {
+            const result = await axios.get(
+            `https://the-motive-one.herokuapp.com/username`
+            );
+            console.log(result)
+            setUsernamePulled(result.data.username);
+            
+          } catch (err) {
+            console.error(err);
+          }
+        }
+        searchApi();
+      }, []);
 
     function handleCategory(e) {
         e.preventDefault();
@@ -47,7 +65,7 @@ const FoodPage = () => {
                                 marginTop: '15px',
                             }}
                             cursorColor='#da3422'
-                            text="WHAT'S THE VIBE?"
+                            text="WHAT'S THE VIBE {usernamePulled}?"
                             typeSpeed={70}
                             startDelay={0.1}
                             loop={true}

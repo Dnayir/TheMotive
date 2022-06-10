@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
@@ -12,6 +12,24 @@ import { loadDrinkCategory } from '../../actions';
 import TypeWriterEffect from 'react-typewriter-effect';
 
 const DrinkPage = () => {
+
+  const [usernamePulled, setUsernamePulled] = useState('guest')
+
+    useEffect(() => {
+        async function searchApi() {
+          try {
+            const result = await axios.get(
+            `https://the-motive-one.herokuapp.com/username`
+            );
+            console.log(result)
+            setUsernamePulled(result.data.username);
+            
+          } catch (err) {
+            console.error(err);
+          }
+        }
+        searchApi();
+      }, []);
   useEffect(() => {
     async function handleUserId() {
       try {
@@ -70,7 +88,7 @@ const DrinkPage = () => {
               marginTop: '15px',
             }}
             cursorColor="#da3422"
-            text="WHAT'S THE VIBE?"
+            text="WHAT'S THE VIBE {usernamePulled}?"
             typeSpeed={70}
             startDelay={0.1}
             loop={true}
