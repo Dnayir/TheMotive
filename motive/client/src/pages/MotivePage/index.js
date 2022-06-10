@@ -14,7 +14,7 @@ const MotivePage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const [usernamePulled, setUsernamePulled] = useState('guest')
+    const [usernamePulled, setUsernamePulled] = useState('')
 
     useEffect(() => {
         async function searchApi() {
