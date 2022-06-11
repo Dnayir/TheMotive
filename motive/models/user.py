@@ -45,3 +45,4 @@ class User(db.Model):
 #                                   'users.id', ondelete='CASCADE', onupdate='CASCADE'),
 #                               nullable=False)
 #     user = db.relationship('Users', backref='user')
+# nqepineqpf

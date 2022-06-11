@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    background-color: #0000;
+  }
+  
+  body {
+    background-image: url(images/black.JPG);
+    background-repeat: no-repeat;
+    background-color: #0000;
+    background-size: 100% 100%;
+  
+    margin: 0;
+  }
+  
